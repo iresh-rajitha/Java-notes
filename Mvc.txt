@@ -1,0 +1,282 @@
+import javax.swing.*;
+import javax.swing.table.*;
+import java.sql.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+class CustomerForm extends JFrame{
+	private JLabel idLabel;			
+	private JLabel nameLabel;			
+	private JLabel addressLabel;			
+	private JLabel salaryLabel;
+	
+	private JTextField idText;	
+	private JTextField nameText;	
+	private JTextField addressText;	
+	private JTextField salaryText;
+	
+	private JButton addButton;
+	private JButton updateButton;
+	private JButton deleteButton;
+	private JButton viewButton;
+	
+	private JPanel labelPanel;
+	private JPanel buttonPanel;
+	private JPanel tablePanel;				
+	
+	CustomerForm(){
+		setSize(500,500);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		labelPanel=new JPanel(new GridLayout(4,2));
+		
+		idLabel=new JLabel("Id");
+		labelPanel.add(idLabel);
+		
+		idText=new JTextField(10);
+		idText.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				searchButtonAction(evt);
+			}
+		});
+		labelPanel.add(idText);		
+		
+		nameLabel=new JLabel("Name");
+		labelPanel.add(nameLabel);
+		
+		nameText=new JTextField(10);
+		labelPanel.add(nameText);
+		
+		addressLabel=new JLabel("Address");
+		labelPanel.add(addressLabel);
+		
+		addressText=new JTextField(10);
+		labelPanel.add(addressText);
+		
+		salaryLabel=new JLabel("Salary");
+		labelPanel.add(salaryLabel);
+		
+		salaryText=new JTextField(10);
+		labelPanel.add(salaryText);
+		
+		add("North",labelPanel);
+		
+		buttonPanel=new JPanel(new FlowLayout());
+		
+		addButton=new JButton("ADD");
+		addButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				String id=idText.getText();
+				String name=nameText.getText();
+				String address=addressText.getText();
+				double salary=Double.parseDouble(salaryText.getText());
+				Customer c1=new Customer(id,name,address,salary);
+				try{
+					int res=CustomerController.addCustomer(c1);
+					if(res>0){
+						JOptionPane.showMessageDialog(CustomerForm.this,"add");
+					}
+				}catch(SQLException e){
+				}catch(ClassNotFoundException e){
+				}
+			}
+		});																								
+		buttonPanel.add(addButton);
+		
+		updateButton=new JButton("Update");
+		updateButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				String id=idText.getText();
+				String name=nameText.getText();
+				String address=addressText.getText();
+				double salary=Double.parseDouble(salaryText.getText());
+				Customer c1=new Customer(id,name,address,salary);
+				try{
+					int res=CustomerController.updateCustomer(c1);
+					if(res>0){
+						JOptionPane.showMessageDialog(CustomerForm.this,"update");
+					}else{
+						JOptionPane.showMessageDialog(CustomerForm.this,"fail");
+					}
+				}catch(SQLException e){
+				}catch(ClassNotFoundException e){
+				}
+			}
+		});																								
+		buttonPanel.add(updateButton);
+		
+		deleteButton=new JButton("Delete");
+		deleteButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				String id=idText.getText();
+				try{
+					int res=CustomerController.deleteCustomer(id);
+					if(res>0){
+						JOptionPane.showMessageDialog(CustomerForm.this,"Deleted");
+					}else{
+						JOptionPane.showMessageDialog(CustomerForm.this,"Faild");
+					}
+				}catch(SQLException e){
+				}catch(ClassNotFoundException e){
+				}
+			}
+		});
+						
+		buttonPanel.add(deleteButton);
+		
+		tablePanel=new JPanel();
+		String [] column={"ID","Name","Address","Salary"};
+		DefaultTableModel dtm=new DefaultTableModel(column,10);
+		JTable customerTable=new JTable(dtm);
+		JScrollPane tablePane=new JScrollPane(customerTable);
+		tablePanel.add(tablePane);
+		add("South",tablePane);
+		
+		viewButton=new JButton("View");
+		viewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				try{
+					ArrayList<Customer>customerList=CustomerController.getAllCustomer();
+					DefaultTableModel dtm=(DefaultTableModel)customerTable.getModel();
+					dtm.setRowCount(0);
+					for(Customer c1 : customerList){
+						Object [] rowData={c1.getId(),c1.getName(),c1.getAddress(),c1.getSalary()};
+						dtm.addRow(rowData);
+					}
+				}catch(SQLException e){
+				}catch(ClassNotFoundException e){
+				}
+			}
+		});
+		buttonPanel.add(viewButton);
+		
+		add("Center",buttonPanel);
+		
+		pack();
+	}
+	private void searchButtonAction(ActionEvent evt){
+		String id=idText.getText();
+		try{
+			Customer c1=CustomerController.searchCustomer(id);
+			if(c1!=null){
+				nameText.setText(c1.getName());
+				addressText.setText(c1.getAddress());
+				salaryText.setText(Double.toString(c1.getSalary()));
+			}else{
+				JOptionPane.showMessageDialog(null,"Customer not found");
+			}
+		}catch(SQLException e){
+		}catch(ClassNotFoundException e){
+		}
+	}
+		
+								
+}
+class CustomerController{
+	public static int addCustomer(Customer c1)throws ClassNotFoundException,SQLException{
+		String SQL="insert into Customer values('"+c1.getId()+"','"+c1.getName()+"','"+c1.getAddress()+"',"+c1.getSalary()+")";
+		Connection conn=DBConnection.getDBConnection().getConnection();
+		Statement stm=conn.createStatement();
+		int res=stm.executeUpdate(SQL);
+		return res;
+	}
+	public static int updateCustomer(Customer c1)throws ClassNotFoundException,SQLException{
+		String SQL="update Customer set name='"+c1.getName()+"',address='"+c1.getAddress()+"',salary="+c1.getSalary()+" where id='"+c1.getId()+"'";
+		Connection conn=DBConnection.getDBConnection().getConnection();
+		Statement stm=conn.createStatement();
+		int res=stm.executeUpdate(SQL);
+		return res;
+	}
+	public static int deleteCustomer(String id)throws ClassNotFoundException,SQLException{
+		String SQL="Delete from Customer where id='"+id+"'";
+		Connection conn=DBConnection.getDBConnection().getConnection();
+		Statement stm=conn.createStatement();
+		int res=stm.executeUpdate(SQL);
+		return res;
+	}
+	public static Customer searchCustomer(String id)throws ClassNotFoundException,SQLException{
+		String SQL="Select * from customer where id='"+id+"'";
+		Connection conn=DBConnection.getDBConnection().getConnection();
+		Statement stm=conn.createStatement();
+		ResultSet rst=stm.executeQuery(SQL);
+		if(rst.next()){
+			Customer c1=new Customer(rst.getString("id"),rst.getString("name"),rst.getString("address"),rst.getDouble("salary"));
+			return c1;
+		}else{
+			return null;
+		}
+	}
+	public static ArrayList<Customer>getAllCustomer()throws ClassNotFoundException,SQLException{
+		String SQL="select * from customer";
+		Connection conn=DBConnection.getDBConnection().getConnection();
+		Statement stm=conn.createStatement();
+		ResultSet rst=stm.executeQuery(SQL);
+		ArrayList<Customer>customerList=new ArrayList<>();
+		while(rst.next()){
+			Customer c1=new Customer(rst.getString("id"),rst.getString("name"),rst.getString("address"),rst.getDouble("salary"));
+			customerList.add(c1);
+		}
+		return customerList;
+	}
+}	
+class Customer{
+	private String id;
+	private String name;
+	private String address;
+	private double salary;
+	
+	Customer(){}
+	Customer(String id,String name,String address,double salary){
+		this.id=id;
+		this.name=name;
+		this.address=address;
+		this.salary=salary;
+	}
+	public void setId(String id){
+		this.id=id;
+	}
+	public void setName(String name){
+		this.name=name;
+	}
+	public void setAddress(String address){
+		this.address=address;
+	}
+	public void setSalary(double salary){
+		this.salary=salary;
+	}
+	public String getId(){
+		return id;
+	}
+	public String getName(){
+		return name;
+	}
+	public String getAddress(){
+		return address;
+	}
+	public double getSalary(){
+		return salary;
+	}
+}
+class DBConnection{
+	private Connection conn;
+	private static DBConnection dbConnection;
+	private DBConnection()throws ClassNotFoundException,SQLException{
+		Class.forName("com.mysql.jdbc.Driver");
+		conn=DriverManager.getConnection("jdbc:mysql://localhost/thogakade","root","2091538196");
+	}
+	public Connection getConnection(){
+		return conn;
+	}
+	public static DBConnection getDBConnection()throws ClassNotFoundException,SQLException{
+		if(dbConnection==null){
+			dbConnection=new DBConnection();
+		}
+		return dbConnection;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		new CustomerForm().setVisible(true);
+	}
+}

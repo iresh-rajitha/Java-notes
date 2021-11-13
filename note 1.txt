@@ -1,0 +1,1041 @@
+Q1
+class Demo{
+	public static void main(String args[]){
+		int length;
+		int width;
+		int height;
+		
+		length=12;
+		width=5;
+		height=3;
+		
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);
+		
+		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q2
+//---------------------------------------Box.java-----------------------------
+class Box{
+	int length;
+	int width;
+	int height;
+}
+
+//---------------------------------------Demo.java-----------------------------
+class Demo{
+	public static void main(String args[]){
+		/*int length;
+		int width;
+		int height;
+		*/
+		Box b1;
+		b1=new Box();
+		
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		
+		int volume;
+		volume=b1.length*b1.width*b1.height;
+		System.out.println("Volume is : "+volume);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q3 Exercise
+===========
+class Demo{
+	public static void main(String args[]){
+		int[] x;	//Create an array reference (Array address)
+		x=new int[3]; //Create an array Object 
+		System.out.println(x); //prints address of the array
+		x[0]=100; //assign 100 into array index 0
+		System.out.println(x[0]);
+		
+		
+		Box b1;	//Create a reference Box type
+		b1=new Box(); //Create an Object (Box type)
+		System.out.println(b1); //Prints address of the Box object
+		b1.length=12; //assign 12 into length of object b1
+		b1.width=5;
+		b1.height=3;
+		System.out.println("length of b1 : "+b1.length);
+		System.out.println("width  of b1 : "+b1.width);
+		System.out.println("height of b1 : "+b1.height);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q4 Exercise
+===========
+import java.util.*;
+class Demo{
+	public static void main(String args[]){
+		Random r; //Create a reference type class 'Random'
+		r=new Random(); //Create an Object of type 'Random'
+		System.out.println(r);
+		
+		Scanner ob; //Create a reference type "Scanner"
+		ob=new Scanner(System.in); //Create an Object type "Scanner"
+		System.out.println(ob);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+		Java Methods
+//////////////////////////////////////////////////////////////////////////////
+Q5
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		
+		b1.printVolume();
+		/*int volume;
+		volume=b1.length*b1.width*b1.height;
+		System.out.println("Volume is : "+volume);*/
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q6
+//-----------------------------------Box.java---------------------------------
+
+//-----------------------------------Demo.java---------------------------------
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		
+		b1.printVolume();
+		b1.printArea(); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q7 From Q6
+=========
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		
+		b1.printVolume();
+		b1.printArea(); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Parameterized Methods
+//////////////////////////////////////////////////////////////////////////////
+Q8
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		
+		/*b1.length=12;
+		b1.width=5;
+		b1.height=3;*/
+		
+		b1.setValues(12,5,3);
+		
+		b1.printVolume();
+		b1.printArea(); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q9 From Q8
+==========
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+
+		b1.setValues(12,5,3);
+		
+		b1.printVolume();
+		b1.printArea(); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q10 Exercise
+============
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+		b1.printArea(); 
+		
+		b1.setLength(120);
+		b1.setWidth(50);
+		b1.setHeight(30);
+		
+		b1.printArea();
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q11 From Q10
+============
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}
+	void setLength(int l){
+		length=l;
+	}
+	void setWidth(int w){
+		width=w;
+	}
+	void setHeight(int h){
+		height=h;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+		b1.printArea(); 
+		
+		b1.setLength(120);
+		b1.setWidth(50);
+		b1.setHeight(30);
+		
+		b1.printArea();
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q12 Method Calling stack Step I
+===============================
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.length=10;
+		b1.width=5;
+		b1.height=3;
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q13 Method Calling stack Step II
+================================
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q14 Methods Calling Stack III
+=============================
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	int getVolume(){
+		int volume;
+		volume=length*width*height;		
+		return volume;
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		int vol=b1.getVolume();
+		System.out.println("Volume : "+vol);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Default Values
+//////////////////////////////////////////////////////////////////////////////
+Q15
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		//b1.setValues(12,5,3);
+		b1.printVolume();
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q16 Exercise
+============
+class MyClass{
+	byte b;
+	short s;
+	int x;
+	long y;
+	float f;
+	double d;
+	char ch;
+	boolean bool;
+	Box b1;	
+	int[] xr;
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass();
+		System.out.println("default value of byte  : "+c1.b);
+		System.out.println("default value of short : "+c1.s);
+		System.out.println("default value of int   : "+c1.x);
+		System.out.println("default value of long  : "+c1.y);
+		System.out.println("default value of float : "+c1.f);
+		System.out.println("default value of double: "+c1.d);
+		System.out.println("default value of char  : "+c1.ch);
+		System.out.println("default value of bool  : "+c1.bool);
+		System.out.println("default value of Box   : "+c1.b1);
+		System.out.println("default value of int[] : "+c1.xr);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Declaration Values
+//////////////////////////////////////////////////////////////////////////////
+Q17
+class Box{
+	int length=10;
+	int width=10;
+	int height=10;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		//b1.setValues(12,5,3);
+		b1.printVolume();
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+		Constructors
+//////////////////////////////////////////////////////////////////////////////
+Q18
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	Box(){
+		length=10;
+		width=10;
+		height=10;
+		System.out.println("Box()");
+	}
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+
+		Box b2=new Box();
+		b2.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q19 Exercise
+============
+class A{
+	int a;
+	A(){
+		System.out.println("Constructor class A");
+	}
+}
+class B{
+	int b;
+	void B(){
+		System.out.println("This is not a constructor..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		B b1=new B();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q20 Exercise
+============
+class A{
+	int a;
+	A(){
+		System.out.println("Constructor class A");
+	}
+}
+class B{
+	int b;
+	void B(){
+		System.out.println("This is not a constructor..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		a1.A(); //Illegal
+		
+		B b1=new B();
+		b1.B(); //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q21 Exercise
+============
+class A{
+	int a;
+	A(){
+		System.out.println("Constructor class A");
+	}
+	void A(){
+		System.out.println("This is a method");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		a1.A();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+		Parameterized Contructor
+//////////////////////////////////////////////////////////////////////////////
+Q22
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	Box(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+		System.out.println("Box(int,int,int)");
+	}
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box(12,5,3);
+		b1.printVolume();
+		
+		Box b2=new Box(); //Illegal ?
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Constructor Overloading
+//////////////////////////////////////////////////////////////////////////////
+Q23
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	Box(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+		System.out.println("Box(int,int,int)");
+	}
+	Box(int l){
+		length=l;
+		width=l;
+		height=l;
+		System.out.println("Box(int)");
+	}	
+	Box(){
+		length=1;
+		width=1;
+		height=1;
+		System.out.println("Box()");
+	}	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+
+		Box b2=new Box(10);
+		b2.printVolume();		
+		
+		Box b3=new Box(12,5,3);
+		b3.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Instance Blocks (Object Blocks)
+//////////////////////////////////////////////////////////////////////////////
+Q24 Exercise
+============
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	length=12;
+	width=12;
+	height=12;
+	System.out.println("Hello Java");
+
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q25 Exercise
+============
+class Customer{
+	int id;
+	String name;
+	
+	id=1001;
+	
+	System.out.println("Class Customer");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q26 Using Instance Blocks
+=========================
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	{
+		length=12;
+		width=12;
+		height=12;
+		System.out.println("Instance block...");
+	}
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q27 Exercise
+============
+class Box{
+	int length=10;
+	int width=10;
+	int height=10;
+	Box(){
+		length=1;
+		width=1;
+		height=1;
+		System.out.println("Constructor...");
+	}
+	Box(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}		
+	{
+		length=12;
+		width=12;
+		height=12;
+		System.out.println("Instance block...1");
+	}
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+		
+		Box b2=new Box(12,5,3);
+		b2.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q28 From Q27
+============
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	Box(){
+		length=10;
+		width=10;
+		height=10;
+		length=12;
+		width=12;
+		height=12;
+		System.out.println("Instance block...1");		
+		length=1;
+		width=1;
+		height=1;
+		System.out.println("Constructor...");
+	}
+
+	Box(int l, int w, int h){
+		length=10;
+		width=10;
+		height=10;
+		length=12;
+		width=12;
+		height=12;
+		System.out.println("Instance block...1");		
+		length=l;
+		width=w;
+		height=h;
+	}		
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+		
+		Box b2=new Box(12,5,3);
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q29 Exercise
+============
+class A{
+	{
+		a=20;
+		System.out.println("Instance block..1");
+	}
+	int a=10;
+	A(){
+		a=40;
+		System.out.println("Constructor..");
+	}
+	{
+		a=30;
+		System.out.println("Instance block..2");
+	}	
+}
+
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		System.out.println("a : "+a1.a);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q30 Exercise
+============
+class A{
+	
+	{
+		a=20;
+	}
+	int a=10;	
+	A(){
+		//Default Constructor
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		System.out.println("a : "+a1.a); //Prints 10
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q31 Exercise
+============
+class A{
+	int a=10;	
+	{
+		a=20;
+	}
+	A(){
+		//Default Constructor
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		System.out.println("a : "+a1.a); //prints 20
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Keyword "this"
+//////////////////////////////////////////////////////////////////////////////
+Q32
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void myMethod(){
+		System.out.println(this);	
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		System.out.println(b1);
+		b1.myMethod();
+		
+		Box b2=new Box();
+		System.out.println(b2);
+		b2.myMethod();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q33 Exercise
+============
+class Box{
+	int length;
+	int width;
+	int height;
+
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int length, int width, int height){
+		length=length;
+		width=width;
+		height=height;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q34 From Q32 (Using "this")
+===========================
+class Box{
+	int length;
+	int width;
+	int height;
+
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int length, int width, int height){
+		this.length=length;
+		this.width=width;
+		this.height=height;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q35
+
+//////////////////////////////////////////////////////////////////////////////
+Q36
+
+//////////////////////////////////////////////////////////////////////////////
+Q37
+
+//////////////////////////////////////////////////////////////////////////////
+Q38
+
+//////////////////////////////////////////////////////////////////////////////
+Q39
+
+//////////////////////////////////////////////////////////////////////////////
+Q40
+

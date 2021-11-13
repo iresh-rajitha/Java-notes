@@ -1,0 +1,951 @@
+Q1
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=10,b=0;
+		int x=a/b;
+		System.out.println("End.");
+	}
+}
+
+//////////////////////////////////////////////////////////////
+Q2
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		xr[3]=100;
+		System.out.println("End.");
+	}
+}
+
+///////////////////////////////////////////////////////
+Q3
+class A{
+	void mA(){
+		System.out.println("mA()");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		A a1=null;	
+		a1.mA();
+		System.out.println("End.");
+	}
+}
+
+/////////////////////////////////////////////////////////////
+Q4
+class A{
+	void mA(){
+		System.out.println("mA()");
+	}
+}
+class B extends A{
+	void mB(){
+		System.out.println("mB()");
+	}	
+}
+
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		A a1=new A();
+		B b1=(B)a1; //Class Cast Exception
+		b1.mB();
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////
+Q5
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		String name="Niroth";
+		char ch=name.charAt(6);
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q6
+import javax.swing.*;
+import java.util.*;
+class Demo{
+	public static void main(String args[]){
+		Scanner input=new Scanner(System.in);
+		System.out.print("Input number 1 : ");
+		int a=input.nextInt();
+		System.out.print("Input number 2 : ");
+		int b=input.nextInt();		
+		
+		int x=0;
+		try{
+			x=a/b;
+		}catch(ArithmeticException ob){
+			x=-1;
+			JOptionPane.showMessageDialog(null,"Wrong number");
+		}
+		System.out.println(a+" / "+b+" = "+x);
+		
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q7 From Q2 (Using try/catch)
+============================
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		try{
+			xr[3]=100;
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array index error");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q8 From Q3 (Using try/catch)
+============================
+
+////////////////////////////////////////////////////////////////////
+Q9 From Q4 (Using try/catch)
+============================
+
+////////////////////////////////////////////////////////////////////
+Q10 From Q5 (Using try/catch)
+============================
+
+////////////////////////////////////////////////////////////////////
+Q11 Case I
+==========
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		try{
+			xr[2]=100; //index 2
+			System.out.println("try block..");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("catch block..");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q12 Case II
+===========
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		try{
+			xr[3]=100; //index 3 out of index
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("catch block..");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q13 Execise
+===========
+class Demo{
+	public static void main(String args[]){
+		int x=100;
+		int a;
+		{
+			a=10;
+		}
+		System.out.println(a);
+		
+		int b;
+		if(x>0){
+			b=10;
+		}
+		System.out.println(b);
+
+		int c;
+		if(x>0){
+			c=10;
+		}else{
+			c=10;
+		}
+		System.out.println(c);
+		
+		int d;
+		d=x>0 ? -10 : 10;
+		System.out.println(d);
+		
+		int e;
+		try{
+			e=10;
+		}catch(ArithmeticException ob){
+			
+		}
+		System.out.println(e);
+		
+		int f;
+		try{
+			f=10;
+		}catch(ArithmeticException on){
+			f=10;
+		}
+		System.out.println(f);
+		
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q14 Case III
+============
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		try{
+			xr[3]=100; //index 3 out of index
+			System.out.println("try block..");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("catch block..");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q15 Case IV
+===========
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		try{
+			xr[3]=100; //index 3 out of index
+		}catch(ArithmeticException ob){
+			System.out.println("catch block..");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q16 Case V
+==========
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		try{
+			xr[3]=100;
+		}catch(/* Insert Code */){
+			System.out.println("catch block..");
+		}
+		System.out.println("End.");
+	}
+}
+//A.	ArrayIndexOutOfBoundsException ob
+//B .	IndexOutOfBoundsException ob
+//C.	RuntimeException ob
+//D.	Exception ob
+//E.	Throwable ob
+//F.	Object ob -. Illegal
+
+////////////////////////////////////////////////////////////////////
+Q17 Case VI - method "printStackTrace()"
+========================================
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		try{
+			xr[3]=100;
+		}catch(ArrayIndexOutOfBoundsException ob){
+			ob.printStackTrace();
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q18 Case VII - Method "toString()"
+==================================
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int[] xr=new int[3];
+		try{
+			xr[3]=100;
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println(ob);//ob.toString()
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+	Multi-catches (Catch Ladder)
+////////////////////////////////////////////////////////////////////
+Q19
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(c)/b;
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println(ob);
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q20 Ooption I
+=============
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(c)/b;
+		}catch(RuntimeException ob){
+			System.out.println(ob);
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q21 Option II
+=============
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(c)/b;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(ArithmeticException ob){
+			System.out.println("arithmetic error");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q22 Case I
+==========
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(ArithmeticException ob){
+			System.out.println("arithmetic error");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q23 Case II
+===========
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}
+		int value;
+		catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(ArithmeticException ob){
+			System.out.println("arithmetic error");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q24 Case III
+============
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(RuntimeException ob){
+			System.out.println("any runtimea error");
+		}catch(ArithmeticException ob){
+			System.out.println("arithmetic error");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q25 From Q24
+============
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(ArithmeticException ob){
+			System.out.println("arithmetic error");
+		}catch(RuntimeException ob){
+			System.out.println("any runtimea error");
+		}catch(Exception ob){
+			System.out.println("any exception");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q26 Case IV (JDK1.6)
+===================
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException | ArithmeticException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(RuntimeException ob){
+			System.out.println("any runtimea error");
+		}catch(Exception ob){
+			System.out.println("any exception");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+	Finally Block
+////////////////////////////////////////////////////////////////////
+Q27 "finally"
+=============
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(ArithmeticException ob){
+			System.out.println("arithmetic error");
+		}catch(RuntimeException ob){
+			System.out.println("any runtimea error");
+		}catch(Exception ob){
+			System.out.println("any exception");
+		}finally{
+			System.out.println("finally");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q28 Case I
+==========
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(ArithmeticException ob){
+			System.out.println("arithmetic error");
+		}finally{
+			System.out.println("finally");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q29 Case II
+===========
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			//xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}catch(ArithmeticException ob){
+			System.out.println("arithmetic error");
+		}finally{
+			System.out.println("finally");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q30 Case III
+============
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start");
+		int a=3,b=0,c=5;
+		int[] xr=new int[3];
+		String name="abcde";
+		try{
+			xr[a]=name.charAt(2)/b; //b=0;
+		}catch(StringIndexOutOfBoundsException ob){
+			System.out.println("String index error");
+		}catch(ArrayIndexOutOfBoundsException ob){
+			System.out.println("Array Index error");
+		}finally{
+			System.out.println("finally");
+		}
+		System.out.println("End.");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q31 Case IV
+===========
+class Demo{
+	public static void main(String args[]){
+		try{
+			//code
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q32 From Q31
+============
+class Demo{
+	public static void main(String args[]){
+		try{
+			//code
+		}finally{ //Legal
+			
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q33 Exercise
+============
+class Demo{
+	public boolean upadateCustomer(){
+		//read data;
+		//create a connection
+		//write data
+		try{
+			return true;
+		}finally{
+			System.out.println("Udate Success");
+		}
+	}
+	public static void main(String args[]){
+
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+	9. Execeptions flow of the method calling stack
+////////////////////////////////////////////////////////////////////
+Q34
+class A{
+	void mA(){
+		System.out.println("Start mA");
+		int x=43/0;
+		System.out.println("End mA");
+	}
+}
+class B{
+	void mB(){
+		System.out.println("Start mB");
+		new A().mA();
+		System.out.println("End mB");
+	}
+}
+class C{
+	void mC(){
+		System.out.println("Start mC");
+		new B().mB();
+		System.out.println("End mC");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		new C().mC();
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q35 Option I
+============
+class A{
+	void mA(){
+		System.out.println("Start mA");
+		try{
+			int x=43/0;
+		}catch(ArithmeticException ob){
+			
+		}
+		System.out.println("End mA");
+	}
+}
+class B{
+	void mB(){
+		System.out.println("Start mB");
+		new A().mA();
+		System.out.println("End mB");
+	}
+}
+class C{
+	void mC(){
+		System.out.println("Start mC");
+		new B().mB();
+		System.out.println("End mC");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		new C().mC();
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q36 Option II
+=============
+class A{
+	void mA(){
+		System.out.println("Start mA");
+		int x=43/0;
+		System.out.println("End mA");
+	}
+}
+class B{
+	void mB(){
+		System.out.println("Start mB");
+		new A().mA();
+		System.out.println("End mB");
+	}
+}
+class C{
+	void mC(){
+		System.out.println("Start mC");
+		new B().mB();
+		System.out.println("End mC");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		try{
+			new C().mC();
+		}catch(ArithmeticException ob){
+			//
+		}
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+	10. Keyword "throws"
+////////////////////////////////////////////////////////////////////
+Q37
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		Thread.sleep(1000);
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q38
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		try{
+			Thread.sleep(1000);
+		}catch(InterruptedException ob){
+			
+		}
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q39 Using "throws"
+==================
+class MyClass{
+	public static void sleep(long x)throws ClassNotFoundException{
+		
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		try{
+			Thread.sleep(1000);
+		}catch(InterruptedException ob){
+			//
+		}
+		MyClass.sleep(1000);
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q40 From Q39
+============
+class MyClass{
+	public static void sleep(long x)throws ClassNotFoundException{
+		
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		try{
+			Thread.sleep(1000);
+		}catch(InterruptedException ob){
+			//
+		}
+		try{
+			MyClass.sleep(1000);
+		}catch(ClassNotFoundException ob){
+			
+		}
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q41 Exercise
+============
+class MyClass{
+	public static void sleep(long x)throws ClassNotFoundException,InterruptedException{
+		
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		try{
+			MyClass.sleep(1000);
+		}catch(ClassNotFoundException ob){
+			
+		}
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q42 From Q41
+============
+class MyClass{
+	public static void sleep(long x)throws ClassNotFoundException,InterruptedException{
+		//
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		try{
+			MyClass.sleep(1000);
+		}catch(ClassNotFoundException ob){
+			
+		}catch(InterruptedException ob){
+			
+		}
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q43 Exercise
+============
+class A{
+	void mA(){
+		System.out.println("Start mA");
+		Thread.sleep(1000);
+		System.out.println("End mA");
+	}
+}
+class B{
+	void mB(){
+		System.out.println("Start mB");
+		new A().mA();
+		System.out.println("End mB");
+	}
+}
+class C{
+	void mC(){
+		System.out.println("Start mC");
+		new B().mB();
+		System.out.println("End mC");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		new C().mC();
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+Q44 From Q43
+============
+class A{
+	void mA()throws InterruptedException {
+		System.out.println("Start mA");
+		Thread.sleep(1000);
+		System.out.println("End mA");
+	}
+}
+class B{
+	void mB()throws InterruptedException{ 
+		System.out.println("Start mB");
+		new A().mA();
+		System.out.println("End mB");
+	}
+}
+class C{
+	void mC()throws InterruptedException{
+		System.out.println("Start mC");
+		new B().mB();
+		System.out.println("End mC");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		try{
+			new C().mC();
+		}catch(InterruptedException ob){
+			
+		}
+		System.out.println("End main");
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+	11. Compile time checked vs Compile time unchecked Exception
+////////////////////////////////////////////////////////////////////
+Q45
+class A{
+	void mA()/*Insert Code */{
+		System.out.println("Start mA");
+		System.out.println("End mA");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		System.out.println("Start main");
+		new A().mA();
+		System.out.println("End main");
+	}
+}
+//A. throws InterruptedException 
+//B. throws ArithmeticException ->
+//C. throws ClassCastException  ->
+//D. throws NullPointerException->
+//E. throws RuntimeException    ->
+//F. throws ClassNotFoundException 
+//G. throws Exception 
+
+////////////////////////////////////////////////////////////////////
+Q46 Exercise
+============
+class Demo{
+	public static void main(String args[]){
+		try{
+			//
+		}catch(ArithmeticException ob){}
+
+		try{
+			//
+		}catch(RuntimeException ob){}		
+		
+		try{
+			//
+		}catch(ClassNotFoundException ob){}		
+
+		try{
+			//
+		}catch(InterruptedException ob){}		
+	}
+}
+
+////////////////////////////////////////////////////////////////////
+	12. Keyword "throw"

@@ -1,0 +1,3237 @@
+Q1
+class Demo{
+	public static void main(String args[]){
+		int length;
+		int width;
+		int height;
+		
+		length=12;
+		width=5;
+		height=3;
+		
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);
+		
+		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q2
+//---------------------------------------Box.java-----------------------------
+class Box{
+	int length;
+	int width;
+	int height;
+}
+
+//---------------------------------------Demo.java-----------------------------
+class Demo{
+	public static void main(String args[]){
+		/*int length;
+		int width;
+		int height;
+		*/
+		Box b1;
+		b1=new Box();
+		
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		
+		int volume;
+		volume=b1.length*b1.width*b1.height;
+		System.out.println("Volume is : "+volume);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q3 Exercise
+===========
+class Demo{
+	public static void main(String args[]){
+		int[] x;	//Create an array reference (Array address)
+		x=new int[3]; //Create an array Object 
+		System.out.println(x); //prints address of the array
+		x[0]=100; //assign 100 into array index 0
+		System.out.println(x[0]);
+		
+		
+		Box b1;	//Create a reference Box type
+		b1=new Box(); //Create an Object (Box type)
+		System.out.println(b1); //Prints address of the Box object
+		b1.length=12; //assign 12 into length of object b1
+		b1.width=5;
+		b1.height=3;
+		System.out.println("length of b1 : "+b1.length);
+		System.out.println("width  of b1 : "+b1.width);
+		System.out.println("height of b1 : "+b1.height);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q4 Exercise
+===========
+import java.util.*;
+class Demo{
+	public static void main(String args[]){
+		Random r; //Create a reference type class 'Random'
+		r=new Random(); //Create an Object of type 'Random'
+		System.out.println(r);
+		
+		Scanner ob; //Create a reference type "Scanner"
+		ob=new Scanner(System.in); //Create an Object type "Scanner"
+		System.out.println(ob);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+		Java Methods
+//////////////////////////////////////////////////////////////////////////////
+Q5
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		
+		b1.printVolume();
+		/*int volume;
+		volume=b1.length*b1.width*b1.height;
+		System.out.println("Volume is : "+volume);*/
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q6
+//-----------------------------------Box.java---------------------------------
+
+//-----------------------------------Demo.java---------------------------------
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		
+		b1.printVolume();
+		b1.printArea(); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q7 From Q6
+=========
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		
+		b1.length=12;
+		b1.width=5;
+		b1.height=3;
+		
+		b1.printVolume();
+		b1.printArea(); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Parameterized Methods
+//////////////////////////////////////////////////////////////////////////////
+Q8
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		
+		/*b1.length=12;
+		b1.width=5;
+		b1.height=3;*/
+		
+		b1.setValues(12,5,3);
+		
+		b1.printVolume();
+		b1.printArea(); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q9 From Q8
+==========
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+
+		b1.setValues(12,5,3);
+		
+		b1.printVolume();
+		b1.printArea(); //
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q10 Exercise
+============
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+		b1.printArea(); 
+		
+		b1.setLength(120);
+		b1.setWidth(50);
+		b1.setHeight(30);
+		
+		b1.printArea();
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q11 From Q10
+============
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void printArea(){
+		int area;
+		area=2*length*width+2*length*height+2*height*width;
+		System.out.println("Area is : "+area);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}
+	void setLength(int l){
+		length=l;
+	}
+	void setWidth(int w){
+		width=w;
+	}
+	void setHeight(int h){
+		height=h;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+		b1.printArea(); 
+		
+		b1.setLength(120);
+		b1.setWidth(50);
+		b1.setHeight(30);
+		
+		b1.printArea();
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q12 Method Calling stack Step I
+===============================
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.length=10;
+		b1.width=5;
+		b1.height=3;
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q13 Method Calling stack Step II
+================================
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q14 Methods Calling Stack III
+=============================
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	int getVolume(){
+		int volume;
+		volume=length*width*height;		
+		return volume;
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		int vol=b1.getVolume();
+		System.out.println("Volume : "+vol);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Default Values
+//////////////////////////////////////////////////////////////////////////////
+Q15
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		//b1.setValues(12,5,3);
+		b1.printVolume();
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q16 Exercise
+============
+class MyClass{
+	byte b;
+	short s;
+	int x;
+	long y;
+	float f;
+	double d;
+	char ch;
+	boolean bool;
+	Box b1;	
+	int[] xr;
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass();
+		System.out.println("default value of byte  : "+c1.b);
+		System.out.println("default value of short : "+c1.s);
+		System.out.println("default value of int   : "+c1.x);
+		System.out.println("default value of long  : "+c1.y);
+		System.out.println("default value of float : "+c1.f);
+		System.out.println("default value of double: "+c1.d);
+		System.out.println("default value of char  : "+c1.ch);
+		System.out.println("default value of bool  : "+c1.bool);
+		System.out.println("default value of Box   : "+c1.b1);
+		System.out.println("default value of int[] : "+c1.xr);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Declaration Values
+//////////////////////////////////////////////////////////////////////////////
+Q17
+class Box{
+	int length=10;
+	int width=10;
+	int height=10;
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		//b1.setValues(12,5,3);
+		b1.printVolume();
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+		Constructors
+//////////////////////////////////////////////////////////////////////////////
+Q18
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	Box(){
+		length=10;
+		width=10;
+		height=10;
+		System.out.println("Box()");
+	}
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+
+		Box b2=new Box();
+		b2.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q19 Exercise
+============
+class A{
+	int a;
+	A(){
+		System.out.println("Constructor class A");
+	}
+}
+class B{
+	int b;
+	void B(){
+		System.out.println("This is not a constructor..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		B b1=new B();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q20 Exercise
+============
+class A{
+	int a;
+	A(){
+		System.out.println("Constructor class A");
+	}
+}
+class B{
+	int b;
+	void B(){
+		System.out.println("This is not a constructor..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		a1.A(); //Illegal
+		
+		B b1=new B();
+		b1.B(); //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q21 Exercise
+============
+class A{
+	int a;
+	A(){
+		System.out.println("Constructor class A");
+	}
+	void A(){
+		System.out.println("This is a method");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		a1.A();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+		Parameterized Contructor
+//////////////////////////////////////////////////////////////////////////////
+Q22
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	Box(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+		System.out.println("Box(int,int,int)");
+	}
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box(12,5,3);
+		b1.printVolume();
+		
+		Box b2=new Box(); //Illegal ?
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Constructor Overloading
+//////////////////////////////////////////////////////////////////////////////
+Q23
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	Box(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+		System.out.println("Box(int,int,int)");
+	}
+	Box(int l){
+		length=l;
+		width=l;
+		height=l;
+		System.out.println("Box(int)");
+	}	
+	Box(){
+		length=1;
+		width=1;
+		height=1;
+		System.out.println("Box()");
+	}	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+
+		Box b2=new Box(10);
+		b2.printVolume();		
+		
+		Box b3=new Box(12,5,3);
+		b3.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Instance Blocks (Object Blocks)
+//////////////////////////////////////////////////////////////////////////////
+Q24 Exercise
+============
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	length=12;
+	width=12;
+	height=12;
+	System.out.println("Hello Java");
+
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q25 Exercise
+============
+class Customer{
+	int id;
+	String name;
+	
+	id=1001;
+	
+	System.out.println("Class Customer");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q26 Using Instance Blocks
+=========================
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	{
+		length=12;
+		width=12;
+		height=12;
+		System.out.println("Instance block...");
+	}
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q27 Exercise
+============
+class Box{
+	int length=10;
+	int width=10;
+	int height=10;
+	Box(){
+		length=1;
+		width=1;
+		height=1;
+		System.out.println("Constructor...");
+	}
+	Box(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}		
+	{
+		length=12;
+		width=12;
+		height=12;
+		System.out.println("Instance block...1");
+	}
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+		
+		Box b2=new Box(12,5,3);
+		b2.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q28 From Q27
+============
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	Box(){
+		length=10;
+		width=10;
+		height=10;
+		length=12;
+		width=12;
+		height=12;
+		System.out.println("Instance block...1");		
+		length=1;
+		width=1;
+		height=1;
+		System.out.println("Constructor...");
+	}
+
+	Box(int l, int w, int h){
+		length=10;
+		width=10;
+		height=10;
+		length=12;
+		width=12;
+		height=12;
+		System.out.println("Instance block...1");		
+		length=l;
+		width=w;
+		height=h;
+	}		
+	
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int l, int w, int h){
+		length=l;
+		width=w;
+		height=h;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.printVolume();
+		
+		Box b2=new Box(12,5,3);
+		b1.printVolume();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q29 Exercise
+============
+class A{
+	{
+		a=20;
+		System.out.println("Instance block..1");
+	}
+	int a=10;
+	A(){
+		a=40;
+		System.out.println("Constructor..");
+	}
+	{
+		a=30;
+		System.out.println("Instance block..2");
+	}	
+}
+
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		System.out.println("a : "+a1.a);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q30 Exercise
+============
+class A{
+	
+	{
+		a=20;
+	}
+	int a=10;	
+	A(){
+		//Default Constructor
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		System.out.println("a : "+a1.a); //Prints 10
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q31 Exercise
+============
+class A{
+	int a=10;	
+	{
+		a=20;
+	}
+	A(){
+		//Default Constructor
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		System.out.println("a : "+a1.a); //prints 20
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Keyword "this"
+//////////////////////////////////////////////////////////////////////////////
+Q32
+class Box{
+	int length;
+	int width;
+	int height;
+	
+	void myMethod(){
+		System.out.println(this);	
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		System.out.println(b1);
+		b1.myMethod();
+		
+		Box b2=new Box();
+		System.out.println(b2);
+		b2.myMethod();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q33 Exercise
+============
+class Box{
+	int length;
+	int width;
+	int height;
+
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int length, int width, int height){
+		length=length;
+		width=width;
+		height=height;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q34 From Q33 (Using "this")
+===========================
+class Box{
+	int length;
+	int width;
+	int height;
+
+	void printVolume(){
+		int volume;
+		volume=length*width*height;
+		System.out.println("Volume is : "+volume);	
+	}
+	void setValues(int length, int width, int height){
+		this.length=length;
+		this.width=width;
+		this.height=height;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		b1.setValues(12,5,3);
+		b1.printVolume();
+		System.out.println("Length : "+b1.length);
+		System.out.println("Width  : "+b1.width);
+		System.out.println("Height : "+b1.height);		
+	}
+}
+	
+//////////////////////////////////////////////////////////////////////////////
+Q35 Exercise
+============
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date();
+		d1.printDate();
+		d1.setDate(31);
+		d1.setMonth(1);
+		d1.setYear(2017);
+		d1.printDate();
+		
+		Date d2=new Date(2017,2,14);
+		d2.printDate();
+		
+		int year=d2.getYear();
+		int month=d2.getMonth();
+		int date=d2.getDate();
+		System.out.println(year+"-"+month+"-"+date);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q36 From Q35
+============
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date();
+		d1.printDate();
+		d1.setDate(31);
+		d1.setMonth(1);
+		d1.setYear(2017);
+		d1.printDate();
+		
+		Date d2=new Date(2017,2,14);
+		d2.printDate();
+		
+		int year=d2.getYear();
+		int month=d2.getMonth();
+		int date=d2.getDate();
+		System.out.println(year+"-"+month+"-"+date);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Static Variables and static Methods
+//////////////////////////////////////////////////////////////////////////////	
+Q37
+class MyClass{
+	int x;
+	static int y;
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass();
+		c1.x=10;
+		c1.y=20;
+		MyClass c2=new MyClass();
+		c2.x=100;
+		c2.y=200;
+		
+		MyClass c3=new MyClass();
+		c3.x=1000;
+		c3.y=2000;
+		System.out.println("c1 : "+c1.x+" "+c1.y);	//prints 10 2000
+		System.out.println("c2 : "+c2.x+" "+c2.y);	//prints 100 2000
+		System.out.println("c3 : "+c3.x+" "+c3.y);	//prints 1000 2000
+		
+		c2.x=1;
+		c2.y=2;	
+		System.out.println("c1 : "+c1.x+" "+c1.y);	//prints 10 2
+		System.out.println("c2 : "+c2.x+" "+c2.y);	//prints 1 2
+		System.out.println("c3 : "+c3.x+" "+c3.y);	//prints 1000 2
+			
+		MyClass.y=0;
+		//MyClass.x=10;
+		System.out.println("c1 : "+c1.x+" "+c1.y);	//prints 10 0
+		System.out.println("c2 : "+c2.x+" "+c2.y);	//prints 1 0
+		System.out.println("c3 : "+c3.x+" "+c3.y);	//prints 1000 	0	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q38 Case I
+==========
+class MyClass{
+	int x=10;
+	static int y=20;
+}
+class Demo{
+	public static void main(String args[]){
+		//System.out.println(MyClass.x); //Illegal
+		System.out.println(MyClass.y); //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q39 Case II
+===========
+class MyClass{
+	int x=10;
+	static int y=20;
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass();
+		MyClass c2=new MyClass();
+		
+		System.out.println(c1.x);
+		System.out.println(c1.y); //Legal
+		System.out.println(c2.y); //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q40 Exercise
+============
+class MyClass{
+	int x=10;
+	static int y=20;
+	MyClass(int i, int j){
+		x=i;
+		y=j;
+	}
+	void printXY(){
+		System.out.println(x);
+		System.out.println(y);
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass(1,2);
+		System.out.println(MyClass.y); 
+		MyClass.y=100;
+		c1.printXY();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q41 Case III
+===========
+class MyClass{
+	int x=10;
+	static int y=20;
+
+	void myMethod(){
+		int a;
+		static int b;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q42 Exercise
+============
+class Demo{
+	int x=10;
+	static int y=20;
+	public static void main(String args[]){
+		int x=100;
+		int y=200;
+		System.out.println();  //prints 10
+		System.out.println();  //prints 20
+		System.out.println();  //prints 100
+		System.out.println();  //prints 200
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q43 Exercise
+============
+class Demo{
+	int x=10;
+	static int y=20;
+	public static void main(String args[]){
+		Demo d1=new Demo();
+		int x=100;
+		int y=200;
+		System.out.println(new Demo().x);//System.out.println(d1.x);  //prints 10
+		System.out.println(Demo.y);//System.out.println(d1.y);  //prints 20
+		System.out.println(x);  //prints 100
+		System.out.println(y);  //prints 200
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q44 Exercise
+============
+class Date{
+	int year;
+	int month;
+	static int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,1,29);
+		Date d2=new Date(2018,2,30);
+		Date d3=new Date(2019,3,31);
+		d1.printDate();	//2017/1/31
+		d2.printDate();	//2018/2/31
+		d3.printDate();	//2019/3/31
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Static Methods
+//////////////////////////////////////////////////////////////////////////////
+Q45
+class MyClass{
+	void instanceMethod(){
+		System.out.println("instance method");
+	}	
+	static void staticMethod(){
+		System.out.println("static method");
+	}		
+}
+class Demo{
+	public static void main(String args[]){
+		//MyClass.instanceMethod();//Error
+		MyClass.staticMethod();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q46 Exercise
+============
+class MyClass{
+	int x=10;
+	static int y=20;
+	void instanceMethod(){
+		System.out.println(x);	//Line 1
+		System.out.println(y);	//Line 2
+	}	
+	static void staticMethod(){
+		System.out.println(x);	//Line 3
+		System.out.println(y);	//Line 4
+	}		
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q47 Exercise
+============
+class Demo{
+	public static void myMethod1(){
+		System.out.println("myMethod1");
+	}
+	public  void myMethod2(){
+		System.out.println("myMethod2");
+	}	
+	public static void main(String args[]){
+		myMethod1(); //Legal
+		myMethod2(); //Illegal
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Tempte Object, Static Blocks
+//////////////////////////////////////////////////////////////////////////////
+Q48
+class Box{
+	int length;
+	int width;
+	int height;
+	static int PI=3.141;
+	
+	void setValues(int length, int width, int height){
+		this.length=length;
+		this.width=width;
+		this.height=height;
+	}
+	static double sqrt(double d){
+		double sqrt=Math.sqrt(d);
+		return sqrt;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q49 Static Blocks
+=================
+class MyClass{
+	int x=10;
+	static int y=20;
+	MyClass(){
+		System.out.println("Constructor");
+	}
+	{
+		System.out.println("Instance block..");
+	}
+	static{
+		System.out.println("Static block..");
+	}
+	void mA(){
+		System.out.println("Instance mA");		
+	}
+	static void mB(){
+		System.out.println("Static mA");		
+	}
+}
+class Demo{
+	public static  void main(String args[]){
+		//Insert Code
+	}	
+}
+//A.	MyClass.mB();
+//B.	MyClass.mB();MyClass.mB();
+//C.	new MyClass();
+//D.	new MyClass();new MyClass();
+//E.	MyClass.mB();new MyClass();
+//F.	MyClass c1;
+
+//////////////////////////////////////////////////////////////////////////////
+	Method Call by Values vs Method Call by Reference		
+//////////////////////////////////////////////////////////////////////////////
+Q50 Method Call by Values (Primitives)
+=====================================
+class MyClass{
+	static void swap(int x, int y){
+		int t=x;
+		x=y;
+		y=t;
+		System.out.println(x+" "+y);//prints 200 100
+	}
+}
+class Demo{
+	public static  void main(String args[]){
+		 int x=100;
+		 int y=200;
+		 System.out.println(x+" "+y);	//prints 100 200
+		 MyClass.swap(x,y);	
+		 System.out.println(x+" "+y);	//prints 100 200
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q51 Method Call by Values
+=========================
+class MyClass{
+	static void swap(int x, int y){
+		int t=x;
+		x=y;
+		y=t;
+		System.out.println(x+" "+y);//prints 200 100
+	}
+}
+class Demo{
+	public static  void main(String args[]){
+		 int[] x={100,200};
+		 System.out.println(x[0]+" "+x[1]);	//prints 100 200
+		 MyClass.swap(x[0],x[1]);	
+		 System.out.println(x[0]+" "+x[1]);	//prints 100 200
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q52 Method Call by Reference
+=============================
+class MyClass{
+	static void swap(int[] x){
+		int t=x[0];
+		x[0]=x[1];
+		x[1]=t;
+		System.out.println(x[0]+" "+x[1]);	//prints 200 100
+	}
+}
+class Demo{
+	public static  void main(String args[]){
+		 int[] x={100,200};
+		 System.out.println(x[0]+" "+x[1]);	//prints 100 200
+		 MyClass.swap(x);	//Call by reference
+		 System.out.println(x[0]+" "+x[1]);	//prints 200 100
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q53 Exercise (Call by Reference)
+================================
+class MyClass{
+	static void swap(int x, int y){
+		int t=x;
+		x=y;
+		y=t;
+		System.out.println(x+" "+y);//prints 200 100
+	}
+}
+class Value{
+	int x=100;
+	int y=200;
+}
+class Demo{
+	public static  void main(String args[]){
+		 Value v1=new Value();
+		 System.out.println(v1.x+" "+v1.y);
+		 MyClass.swap(v1.x, v1.y);
+		 System.out.println(v1.x+" "+v1.y);
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q54 From Q53 (Convert Call by Reference)
+========================================
+class MyClass{
+	static void swap(Value v){
+		int t=v.x;
+		v.x=v.y;
+		v.y=t;
+		System.out.println(v.x+" "+v.y);//prints 200 100
+	}
+}
+class Value{
+	int x=100;
+	int y=200;
+}
+class Demo{
+	public static  void main(String args[]){
+		 Value v1=new Value();
+		 System.out.println(v1.x+" "+v1.y);
+		 MyClass.swap(v1);
+		 System.out.println(v1.x+" "+v1.y);
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q55 Exercise
+============
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		Date d2=new Date(); //Default Date
+		d2.printDate(); //1970/1/1
+		
+		d2.copyDateFrom(d1);
+		d2.printDate(); //2017/2/14
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q56 From Q55
+============
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+	void copyDateFrom(Date d){
+		this.year=d.year;
+		this.month=d.month;
+		this.date=d.date;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		Date d2=new Date(); //Default Date
+		d2.printDate(); //1970/1/1
+		
+		d2.copyDateFrom(d1);
+		d2.printDate(); //2017/2/14
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Retrun an Object
+//////////////////////////////////////////////////////////////////////////////
+Q57
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+	void copyDateFrom(Date d){
+		this.year=d.year;
+		this.month=d.month;
+		this.date=d.date;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		Date d2=d1.getCopy();
+		d2.printDate(); //2017/2/14
+		
+		System.out.println(d1==d2); //false
+	}
+}
+//////////////////////////////////////////////////////////////////////
+From Q57
+========
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+	void copyDateFrom(Date d){
+		this.year=d.year;
+		this.month=d.month;
+		this.date=d.date;
+	}
+	Date getCopy(){
+		Date d1=new Date();
+		d1.setYear(this.year);
+		d1.setMonth(this.month);
+		d1.setDate(this.date);
+		return d1;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		Date d2=d1.getCopy();
+		d2.printDate(); //2017/2/14
+		
+		System.out.println(d1==d2); //false
+	}
+}
+
+//------------------------------------------------------------
+	Date getCopy(){
+		Date d1=new Date(year,month,date);
+		return d1;
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////
+	Encapsulation
+//////////////////////////////////////////////////////////////////////////////
+Q58 
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame();
+		f1.setSize(300,300);
+		f1.setTitle("Calculator");
+		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q59 
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		d1.year=-2017;
+		d1.month=-2;
+		d1.date=-14;
+		d1.printDate();
+		
+		d1.year=2017;
+		d1.month=2;
+		d1.date=31;
+		d1.printDate();		 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q60 From Q59
+============
+class Date{
+	private int year;
+	private int month;
+	private int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		d1.year=-2017;
+		d1.month=-2;
+		d1.date=-14;
+		d1.printDate();
+		
+		d1.year=2017;
+		d1.month=2;
+		d1.date=31;
+		d1.printDate();		 
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q61 With Encapsulation
+======================
+class Date{
+	private int year;
+	private int month;
+	private int date;
+	
+	public Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	public Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	public void setYear(int year){
+		if(year>0){
+			this.year=year;
+		}
+	}
+	public void setMonth(int month){
+		if(month>=1 & month<=12){
+			this.month=month;
+		}
+	}	
+	public void setDate(int date){
+		if(date>=1 && date<=31){
+			this.date=date;
+		}
+	}	
+	public void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	public int getDate(){
+		return date;
+	}
+	public int getYer(){
+		return year;
+	}	
+	public int getMonth(){
+		return month;
+	}	
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		d1.setYear(-2017); //d1.year=-2017;
+		d1.setMonth(-2); //d1.month=-2;
+		d1.setDate(-14); //d1.date=-14;
+		d1.printDate();
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Method Overloading
+//////////////////////////////////////////////////////////////////////////////
+Q62
+class MyClass{
+	public static void myMethod(int i){
+		System.out.println("myMethod2(int)");
+	}
+	public static void myMethod(int i){
+		System.out.println("myMethod2(int)");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass.myMethod(100);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q63
+class MyClass{
+	public static void myMethod(int i){
+		System.out.println("myMethod2(int)");
+	}
+	public static void myMethod(double i){
+		System.out.println("myMethod(double)");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass.myMethod(100);
+		MyClass.myMethod(10.0);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q64 Exercise
+============
+class MyClass{
+	public static void myMethod(int i){
+		System.out.println("myMethod2(int)");
+	}
+	public static void myMethod(double i){
+		System.out.println("myMethod(double)");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		byte b=-100;
+		short s=-100;
+		int x=-100;
+		long y=-100;
+		float f=-100.0f;
+		double d=-1.1222;
+		
+		b=MyClass.abs(b);
+		s=MyClass.abs(s);
+		x=MyClass.abs(x);
+		y=MyClass.abs(y);
+		f=MyClass.abs(f);
+		d=MyClass.abs(d);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q65 From Q64
+============
+class MyClass{
+	public static byte abs(byte b){
+		return (byte) (b<0 ? -b:b);
+	}
+	public static short abs(short b){
+		return (short) (b<0 ? -b:b);
+	}	
+	public static int abs(int b){
+		return b<0 ? -b:b;
+	}	
+	public static long abs(long b){
+		return b<0 ? -b:b;
+	}	
+	public static float abs(float b){
+		return b<0 ? -b:b;
+	}	
+	public static double abs(double b){
+		return  b<0 ? -b:b;
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		byte b=-100;
+		short s=-100;
+		int x=-100;
+		long y=-100;
+		float f=-100.0f;
+		double d=-1.1222;
+		
+		b=MyClass.abs(b);
+		s=MyClass.abs(s);
+		x=MyClass.abs(x);
+		y=MyClass.abs(y);
+		f=MyClass.abs(f);
+		d=MyClass.abs(d);
+		
+		System.out.println(b);
+		System.out.println(s);
+		System.out.println(x);
+		System.out.println(y);
+		System.out.println(f);
+		System.out.println(d);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Java Swing Applications
+//////////////////////////////////////////////////////////////////////////////
+Q66
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q67
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q68
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame();
+		f1.setSize(300,300);
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q69
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame();
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setVisible(true);
+	}
+}
+//JFrame.DO_NOTHING_ON_CLOSE - 0
+//JFrame.HIDE_ON_CLOSE - 1
+//JFrame.DISPOSE_ON_CLOSE - 2
+//JFrame.EXIT_ON_CLOSE - 3
+
+//////////////////////////////////////////////////////////////////////////////
+Q70
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame();
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setTitle("Calculator");
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q71
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		//f1.setTitle("Calculator");
+		f1.setLocationRelativeTo(null);
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q72
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JButton yesButton=new JButton();
+		yesButton.setText("Yes");
+		f1.add(yesButton);
+		
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q73
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JButton yesButton=new JButton();
+		yesButton.setText("Yes");
+		f1.add(yesButton);
+		
+		JButton cancelButton=new JButton("Cancel");
+		f1.add(cancelButton);
+		
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Layout Manager
+//////////////////////////////////////////////////////////////////////////////
+Q74 BorderLayout
+================
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JButton yesButton=new JButton();
+		yesButton.setText("Yes");
+		f1.add("North",yesButton);
+		
+		JButton cancelButton=new JButton("Cancel");
+		f1.add("South",cancelButton);
+		
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q75
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JButton northButton=new JButton("North");
+		f1.add("North",northButton);
+		
+		JButton southButton=new JButton("South");
+		f1.add("South",southButton);
+		
+		JButton westButton=new JButton("West");
+		f1.add("West",westButton);
+		
+		JButton eastButton=new JButton("East");
+		f1.add("East",eastButton);
+		
+		JButton centerButton=new JButton("Center");
+		f1.add("Center",centerButton);
+		
+		f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q76 FlowLayout
+==============
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		f1.setLayout(new FlowLayout());
+		JButton northButton=new JButton("North");
+		f1.add("North",northButton);
+		
+		JButton southButton=new JButton("South");
+		f1.add("South",southButton);
+		
+		JButton westButton=new JButton("West");
+		f1.add("West",westButton);
+		
+		JButton eastButton=new JButton("East");
+		f1.add("East",eastButton);
+		
+		JButton centerButton=new JButton("Center");
+		f1.add("Center",centerButton);
+		
+		//f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q77
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		FlowLayout f=new FlowLayout();
+		f.setAlignment(FlowLayout.LEFT);
+		
+		f1.setLayout(f);
+		
+		JButton northButton=new JButton("North");
+		f1.add(northButton);
+		
+		JButton southButton=new JButton("South");
+		f1.add(southButton);
+		
+		JButton westButton=new JButton("West");
+		f1.add(westButton);
+		
+		JButton eastButton=new JButton("East");
+		f1.add(eastButton);
+		
+		JButton centerButton=new JButton("Center");
+		f1.add(centerButton);
+		
+		//f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q78 GridLayout
+===============
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		f1.setLayout(new GridLayout(3,2));
+		
+		JButton bt1=new JButton("1");
+		f1.add(bt1);
+		JButton bt2=new JButton("2");
+		f1.add(bt2);
+		JButton bt3=new JButton("3");
+		f1.add(bt3);
+		JButton bt4=new JButton("4");
+		f1.add(bt4);
+		JButton bt5=new JButton("5");
+		f1.add(bt5);
+		JButton bt6=new JButton("6");
+		f1.add(bt6);
+		
+		//f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q79 Exercise
+============
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		f1.setLayout(new GridLayout(4,4));
+		
+		JButton bt7=new JButton("7");
+		bt7.setFont(new Font("",1,20));
+		f1.add(bt7);		
+		JButton bt8=new JButton("8");
+		bt8.setFont(new Font("",1,20));
+		f1.add(bt8);		
+		JButton bt9=new JButton("9");
+		bt9.setFont(new Font("",1,20));
+		f1.add(bt9);		
+		JButton btMul=new JButton("*");
+		btMul.setFont(new Font("",1,20));
+		f1.add(btMul);		
+
+		JButton bt4=new JButton("4");
+		bt4.setFont(new Font("",1,20));		
+		f1.add(bt4);
+		JButton bt5=new JButton("5");
+		bt5.setFont(new Font("",1,20));	
+		f1.add(bt5);
+		JButton bt6=new JButton("6");
+		bt6.setFont(new Font("",1,20));
+		f1.add(bt6);
+		JButton btDiv=new JButton("/");
+		btDiv.setFont(new Font("",1,20));
+		f1.add(btDiv);						
+
+		JButton bt1=new JButton("1");
+		bt1.setFont(new Font("",1,20));
+		f1.add(bt1);
+		JButton bt2=new JButton("2");
+		bt2.setFont(new Font("",1,20));
+		f1.add(bt2);
+		JButton bt3=new JButton("3");
+		bt3.setFont(new Font("",1,20));
+		f1.add(bt3);
+		JButton btAdd=new JButton("+");
+		btAdd.setFont(new Font("",1,20));
+		f1.add(btAdd);						
+		
+		JButton bt0=new JButton("0");
+		bt0.setFont(new Font("",1,20));
+		f1.add(bt0);		
+		JButton btDec=new JButton(".");
+		btDec.setFont(new Font("",1,20));
+		f1.add(btDec);				
+		JButton btEquals=new JButton("=");
+		btEquals.setFont(new Font("",1,20));
+		f1.add(btEquals);				
+		JButton btSub=new JButton("-");
+		btSub.setFont(new Font("",1,20));
+		f1.add(btSub);				
+		
+		f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q80 JPanel
+==========
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JPanel p1=new JPanel();
+		p1.setSize(300,300);	
+		
+		JButton bt=new JButton("Yes");
+		p1.add(bt);		
+		p1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q81 Example for JPanel
+======================
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame();
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		JPanel southPanel=new JPanel();
+		southPanel.setLayout(new GridLayout(2,2));
+		JButton sbt1=new JButton("S1");
+		southPanel.add(sbt1);
+		JButton sbt2=new JButton("S2");
+		southPanel.add(sbt2);
+		JButton sbt3=new JButton("S3");
+		southPanel.add(sbt3);
+		JButton sbt4=new JButton("S4");
+		southPanel.add(sbt4);
+
+		f1.add("South",southPanel);
+
+		JPanel northPanel=new JPanel(new GridLayout(2,2));
+		JButton nbt1=new JButton("N1");
+		northPanel.add(nbt1);
+		JButton nbt2=new JButton("N2");
+		northPanel.add(nbt2);
+		JButton nbt3=new JButton("N3");
+		northPanel.add(nbt3);
+		JButton nbt4=new JButton("N4");
+		northPanel.add(nbt4);
+		
+		f1.add("North",northPanel);
+		
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q82 Exercise
+============
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Calculator");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JTextField displayText=new JTextField(20);
+		displayText.setFont(new Font("",1,20));
+		displayText.setEditable(false);
+		displayText.setHorizontalAlignment(JTextField.RIGHT);
+		f1.add("North",displayText);
+		
+		JPanel bubttonPanel=new JPanel(new GridLayout(4,4,2,2));
+		
+		JButton bt7=new JButton("7");
+		bt7.setFont(new Font("",1,20));
+		bubttonPanel.add(bt7);		
+		
+		JButton bt8=new JButton("8");
+		bt8.setFont(new Font("",1,20));
+		bubttonPanel.add(bt8);		
+		
+		JButton bt9=new JButton("9");
+		bt9.setFont(new Font("",1,20));
+		bubttonPanel.add(bt9);		
+		
+		JButton btMul=new JButton("*");
+		btMul.setFont(new Font("",1,20));
+		bubttonPanel.add(btMul);		
+
+		JButton bt4=new JButton("4");
+		bt4.setFont(new Font("",1,20));		
+		bubttonPanel.add(bt4);
+		
+		JButton bt5=new JButton("5");
+		bt5.setFont(new Font("",1,20));	
+		bubttonPanel.add(bt5);
+		
+		JButton bt6=new JButton("6");
+		bt6.setFont(new Font("",1,20));
+		bubttonPanel.add(bt6);
+		
+		JButton btDiv=new JButton("/");
+		btDiv.setFont(new Font("",1,20));
+		bubttonPanel.add(btDiv);						
+		
+		JButton bt1=new JButton("1");
+		bt1.setFont(new Font("",1,20));
+		bubttonPanel.add(bt1);
+		
+		JButton bt2=new JButton("2");
+		bt2.setFont(new Font("",1,20));
+		bubttonPanel.add(bt2);
+		
+		JButton bt3=new JButton("3");
+		bt3.setFont(new Font("",1,20));
+		bubttonPanel.add(bt3);
+		
+		JButton btAdd=new JButton("+");
+		btAdd.setFont(new Font("",1,20));
+		bubttonPanel.add(btAdd);						
+		
+		JButton bt0=new JButton("0");
+		bt0.setFont(new Font("",1,20));
+		bubttonPanel.add(bt0);		
+		
+		JButton btDec=new JButton(".");
+		btDec.setFont(new Font("",1,20));
+		bubttonPanel.add(btDec);				
+		
+		JButton btEquals=new JButton("=");
+		btEquals.setFont(new Font("",1,20));
+		bubttonPanel.add(btEquals);				
+		
+		JButton btSub=new JButton("-");
+		btSub.setFont(new Font("",1,20));
+		bubttonPanel.add(btSub);				
+		
+		f1.add("Center",bubttonPanel);
+		f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q83 AddCustomerForm Step I
+==========================
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Add Customer Form");
+		f1.setSize(300,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JLabel titleLabel=new JLabel("Add Customer Form");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		f1.add("North",titleLabel);
+		
+					
+		//f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q84 Step II
+===========
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Add Customer Form");
+		f1.setSize(600,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JLabel titleLabel=new JLabel("Add Customer Form");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		f1.add("North",titleLabel);
+		
+		JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));			
+		JButton addButton=new JButton("Add Customer");
+		addButton.setFont(new Font("",1,16));
+		buttonPanel.add(addButton);
+
+		JButton cancelButton=new JButton("Cancel");
+		cancelButton.setFont(new Font("",1,16));
+		buttonPanel.add(cancelButton);		
+		
+		f1.add("South",buttonPanel);
+		
+		//f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q85 Step III
+============
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Add Customer Form");
+		f1.setSize(600,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JLabel titleLabel=new JLabel("Add Customer Form");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		f1.add("North",titleLabel);
+		
+		JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));			
+		JButton addButton=new JButton("Add Customer");
+		addButton.setFont(new Font("",1,16));
+		buttonPanel.add(addButton);
+
+		JButton cancelButton=new JButton("Cancel");
+		cancelButton.setFont(new Font("",1,16));
+		buttonPanel.add(cancelButton);		
+		
+		f1.add("South",buttonPanel);
+		
+		//
+		JPanel centerPanel=new JPanel(new GridLayout(4,2));
+		
+		JLabel idLabel=new JLabel("Customer ID");
+		idLabel.setFont(new Font("",1,16));
+		centerPanel.add(idLabel);
+		
+		JTextField idText=new JTextField(8);
+		idText.setFont(new Font("",1,16));
+		centerPanel.add(idText);
+		
+		JLabel nameLabel=new JLabel("Name");
+		nameLabel.setFont(new Font("",1,16));
+		centerPanel.add(nameLabel);
+		
+		JTextField nameText=new JTextField(25);
+		nameText.setFont(new Font("",1,16));
+		centerPanel.add(nameText);		
+
+		JLabel addressLabel=new JLabel("Address");
+		addressLabel.setFont(new Font("",1,16));
+		centerPanel.add(addressLabel);
+		
+		JTextField addressText=new JTextField(30);
+		addressText.setFont(new Font("",1,16));
+		centerPanel.add(addressText);		
+		
+		JLabel salaryLabel=new JLabel("Salary");
+		salaryLabel.setFont(new Font("",1,16));
+		centerPanel.add(salaryLabel);
+		
+		JTextField salaryText=new JTextField(12);
+		salaryText.setFont(new Font("",1,16));
+		centerPanel.add(salaryText);		
+		
+		f1.add("Center",centerPanel);
+		
+		f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q86 Step IV
+===========
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Add Customer Form");
+		f1.setSize(600,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JLabel titleLabel=new JLabel("Add Customer Form");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		f1.add("North",titleLabel);
+		
+		JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));			
+		JButton addButton=new JButton("Add Customer");
+		addButton.setFont(new Font("",1,16));
+		buttonPanel.add(addButton);
+
+		JButton cancelButton=new JButton("Cancel");
+		cancelButton.setFont(new Font("",1,16));
+		buttonPanel.add(cancelButton);		
+		
+		f1.add("South",buttonPanel);
+		
+		//
+		JPanel labelPanel=new JPanel(new GridLayout(4,1));
+
+		JLabel idLabel=new JLabel("Customer ID");
+		idLabel.setFont(new Font("",1,16));
+		labelPanel.add(idLabel);
+		
+		JLabel nameLabel=new JLabel("Name");
+		nameLabel.setFont(new Font("",1,16));
+		labelPanel.add(nameLabel);
+		JLabel addressLabel=new JLabel("Address");
+
+		addressLabel.setFont(new Font("",1,16));
+		labelPanel.add(addressLabel);				
+		JLabel salaryLabel=new JLabel("Salary");
+		salaryLabel.setFont(new Font("",1,16));
+
+		labelPanel.add(salaryLabel);
+		f1.add("West",labelPanel);
+		
+		JPanel textPanel=new JPanel(new GridLayout(4,1));
+		JTextField idText=new JTextField(8);
+		idText.setFont(new Font("",1,16));
+		textPanel.add(idText);
+	
+		JTextField nameText=new JTextField(25);
+		nameText.setFont(new Font("",1,16));
+		textPanel.add(nameText);		
+		
+		JTextField addressText=new JTextField(30);
+		addressText.setFont(new Font("",1,16));
+		textPanel.add(addressText);		
+		
+		JTextField salaryText=new JTextField(12);
+		salaryText.setFont(new Font("",1,16));
+		textPanel.add(salaryText);		
+		
+		f1.add("East",textPanel);
+		
+		f1.pack();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q87 Step V
+==========
+import javax.swing.*;
+import java.awt.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame("Add Customer Form");
+		//f1.setSize(600,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		
+		JLabel titleLabel=new JLabel("Add Customer Form");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		f1.add("North",titleLabel);
+		
+		JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));			
+		JButton addButton=new JButton("Add Customer");
+		addButton.setFont(new Font("",1,16));
+		buttonPanel.add(addButton);
+
+		JButton cancelButton=new JButton("Cancel");
+		cancelButton.setFont(new Font("",1,16));
+		buttonPanel.add(cancelButton);		
+		
+		f1.add("South",buttonPanel);
+		
+		//
+		JPanel labelPanel=new JPanel(new GridLayout(4,1));
+
+		JLabel idLabel=new JLabel("Customer ID");
+		idLabel.setFont(new Font("",1,16));
+		labelPanel.add(idLabel);
+		JLabel nameLabel=new JLabel("Name");
+		nameLabel.setFont(new Font("",1,16));
+		labelPanel.add(nameLabel);
+		JLabel addressLabel=new JLabel("Address");
+		addressLabel.setFont(new Font("",1,16));
+		labelPanel.add(addressLabel);				
+		JLabel salaryLabel=new JLabel("Salary");
+		salaryLabel.setFont(new Font("",1,16));
+		labelPanel.add(salaryLabel);
+		f1.add("West",labelPanel);
+		
+		JPanel textPanel=new JPanel(new GridLayout(4,1));
+		JTextField idText=new JTextField(8);
+		idText.setFont(new Font("",1,16));
+		JPanel idTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
+		idTextPanel.add(idText); 
+		textPanel.add(idTextPanel);
+		
+		JTextField nameText=new JTextField(25);
+		nameText.setFont(new Font("",1,16));
+		JPanel nameTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
+		nameTextPanel.add(nameText);
+		textPanel.add(nameTextPanel);		
+
+		JTextField addressText=new JTextField(30);
+		addressText.setFont(new Font("",1,16));
+		JPanel addressTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));		
+		addressTextPanel.add(addressText);
+		textPanel.add(addressTextPanel);		
+
+		JTextField salaryText=new JTextField(12);
+		salaryText.setFont(new Font("",1,16));
+		JPanel salaryTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));		
+		salaryTextPanel.add(salaryText);
+		textPanel.add(salaryTextPanel);		
+		
+		f1.add("East",textPanel);
+		
+		f1.setResizable(false);		
+		f1.pack();
+		f1.setVisible(true);
+	}
+}
+ 
+//////////////////////////////////////////////////////////////////////////////
+	Inheritance
+//////////////////////////////////////////////////////////////////////////////
+Q88 Step I
+==========
+import javax.swing.*;
+import java.awt.*;
+class AddCustomerForm{
+	
+}
+class Demo{
+	public static void main(String args[]){
+		AddCustomerForm f1=new AddCustomerForm();
+		f1.setSize(600,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q89 Step II
+===========
+import javax.swing.*;
+import java.awt.*;
+class AddCustomerForm extends JFrame{
+	
+}
+class Demo{
+	public static void main(String args[]){
+		AddCustomerForm f1=new AddCustomerForm();
+		f1.setSize(600,300);
+		f1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		f1.setLocationRelativeTo(null);
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q90 Step III
+============
+import javax.swing.*;
+import java.awt.*;
+class AddCustomerForm extends JFrame{
+	AddCustomerForm(){
+		setSize(600,400);
+		setTitle("Add Customer Form");
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		AddCustomerForm f1=new AddCustomerForm();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q91 Step IV
+===========
+import javax.swing.*;
+import java.awt.*;
+class AddCustomerForm extends JFrame{
+	private JLabel titleLabel;
+	
+	AddCustomerForm(){
+		setSize(600,400);
+		setTitle("Add Customer Form");
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
+		titleLabel=new JLabel("Add Customer Form");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		add("North",titleLabel);
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		AddCustomerForm f1=new AddCustomerForm();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q92 Step V
+==========
+import javax.swing.*;
+import java.awt.*;
+class AddCustomerForm extends JFrame{
+	private JLabel titleLabel;
+	private JLabel idLabel;
+	private JLabel nameLabel;
+	private JLabel addressLabel;
+	private JLabel salaryLabel;
+	
+	private JTextField idText;
+	private JTextField nameText;
+	private JTextField addressText;
+	private JTextField salaryText;
+	
+	private JButton addButton;
+	private JButton cancelButton;
+	
+	AddCustomerForm(){
+		setSize(600,400);
+		setTitle("Add Customer Form");
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
+		titleLabel=new JLabel("Add Customer Form");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		add("North",titleLabel);
+
+		JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));			
+		addButton=new JButton("Add Customer");
+		addButton.setFont(new Font("",1,16));
+		buttonPanel.add(addButton);
+
+		cancelButton=new JButton("Cancel");
+		cancelButton.setFont(new Font("",1,16));
+		buttonPanel.add(cancelButton);		
+		
+		add("South",buttonPanel);
+		
+		//
+		JPanel labelPanel=new JPanel(new GridLayout(4,1));
+
+		idLabel=new JLabel("Customer ID");
+		idLabel.setFont(new Font("",1,16));
+		labelPanel.add(idLabel);
+		nameLabel=new JLabel("Name");
+		nameLabel.setFont(new Font("",1,16));
+		labelPanel.add(nameLabel);
+		addressLabel=new JLabel("Address");
+		addressLabel.setFont(new Font("",1,16));
+		labelPanel.add(addressLabel);				
+		salaryLabel=new JLabel("Salary");
+		salaryLabel.setFont(new Font("",1,16));
+		labelPanel.add(salaryLabel);
+		add("West",labelPanel);
+		
+		JPanel textPanel=new JPanel(new GridLayout(4,1));
+		idText=new JTextField(8);
+		idText.setFont(new Font("",1,16));
+		JPanel idTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
+		idTextPanel.add(idText); 
+		textPanel.add(idTextPanel);
+		
+		nameText=new JTextField(25);
+		nameText.setFont(new Font("",1,16));
+		JPanel nameTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
+		nameTextPanel.add(nameText);
+		textPanel.add(nameTextPanel);		
+
+		addressText=new JTextField(30);
+		addressText.setFont(new Font("",1,16));
+		JPanel addressTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));		
+		addressTextPanel.add(addressText);
+		textPanel.add(addressTextPanel);		
+
+		salaryText=new JTextField(12);
+		salaryText.setFont(new Font("",1,16));
+		JPanel salaryTextPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));		
+		salaryTextPanel.add(salaryText);
+		textPanel.add(salaryTextPanel);		
+		
+		add("East",textPanel);
+		
+		setResizable(false);		
+		pack();
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		AddCustomerForm f1=new AddCustomerForm();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q93 Exercise
+============
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame{
+	private JTextField displayText;
+	
+	private JButton bt0;
+	private JButton bt1;
+	private JButton bt2;
+	private JButton bt3;
+	private JButton bt4;
+	private JButton bt5;
+	private JButton bt6;
+	private JButton bt7;
+	private JButton bt8;
+	private JButton bt9;
+	private JButton btAdd;
+	private JButton btSub;
+	private JButton btMul;
+	private JButton btDive;
+	private JButton btEquals;
+	private JButton btDec;
+	
+	Calculator(){
+		setSize(300,300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(Calculator.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		displayText=new JTextField(20);
+		displayText.setFont(new Font("",1,20));
+		displayText.setEditable(false);
+		displayText.setHorizontalAlignment(JTextField.RIGHT);
+		add("North",displayText);
+
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Calculator c1=new Calculator();
+		c1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q94 Notepad Step I
+==================
+import javax.swing.*;
+import java.awt.*;
+
+class Demo{
+	public static void main(String args[]){
+		Notepad n1=new Notepad();
+		n1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q95 Step II
+===========
+import javax.swing.*;
+import java.awt.*;
+
+class Notepad extends JFrame{
+	Notepad(){
+		setSize(600,600);
+		setTitle("Untitled");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Notepad n1=new Notepad();
+		n1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q96 Step III
+============
+import javax.swing.*;
+import java.awt.*;
+
+class Notepad extends JFrame{
+	Notepad(){
+		setSize(600,600);
+		setTitle("Untitled");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		JTextArea textArea=new JTextArea();
+		textArea.setFont(new Font("",1,20));
+		add("Center",textArea);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Notepad n1=new Notepad();
+		n1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q97 Step IV
+===========
+import javax.swing.*;
+import java.awt.*;
+
+class Notepad extends JFrame{
+	private JTextArea  textArea;
+	Notepad(){
+		setSize(600,600);
+		setTitle("Untitled");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		textArea=new JTextArea();
+		textArea.setFont(new Font("",1,20));
+		JScrollPane textPane=new JScrollPane(textArea);
+		add("Center",textPane);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Notepad n1=new Notepad();
+		n1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q98 Step V
+==========
+import javax.swing.*;
+import java.awt.*;
+
+class Notepad extends JFrame{
+	private JTextArea  textArea;
+	
+	private JMenuBar mainMenuBar;
+	private JMenu fileMenu;
+	private JMenu editeMenu;
+	
+	private JMenuItem newMenuItem;
+	private JMenuItem openMenuItem;
+	private JMenuItem saveMenuItem;
+	private JMenuItem saveAsMenuItem;
+	private JMenuItem exitMenuItem;
+	
+	private JMenuItem cutMenuItem;
+	private JMenuItem copyMenuItem;
+	private JMenuItem pasteMenuItem;
+	private JMenuItem deleteMenuItem;
+	
+	
+	
+	Notepad(){
+		setSize(600,600);
+		setTitle("Untitled");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		textArea=new JTextArea();
+		textArea.setFont(new Font("",1,20));
+		JScrollPane textPane=new JScrollPane(textArea);
+		add("Center",textPane);
+		
+		fileMenu=new JMenu("File");
+		
+		newMenuItem=new JMenuItem("New");
+		fileMenu.add(newMenuItem);
+		
+		openMenuItem=new JMenuItem("Open");
+		fileMenu.add(openMenuItem);
+		
+		fileMenu.add(new JSeparator());
+		
+		saveMenuItem=new JMenuItem("Save");
+		fileMenu.add(saveMenuItem);
+		
+		saveAsMenuItem=new JMenuItem("Save As");
+		fileMenu.add(saveAsMenuItem);
+		
+		mainMenuBar=new JMenuBar();
+		mainMenuBar.add(fileMenu);
+		
+		fileMenu.add(new JSeparator());
+		
+		exitMenuItem=new JMenuItem("Exit");
+		fileMenu.add(exitMenuItem);
+		setJMenuBar(mainMenuBar);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Notepad n1=new Notepad();
+		n1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q99
+import javax.swing.*;
+import javax.swing.table.*;
+import java.awt.*;
+
+class ViewCustomerList extends JFrame{
+	
+	ViewCustomerList(){
+		setSize(600,600);
+		setTitle("List Customer");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		String[] colNames={"Customer ID", "Name","Address","Salary"};
+		DefaultTableModel dtm=new DefaultTableModel(colNames,2);
+		JTable t=new JTable(dtm);
+		JScrollPane tablePane=new JScrollPane(t);
+		add("Center", tablePane);
+		pack();
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new ViewCustomerList().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q100
+
+//////////////////////////////////////////////////////////////////////////////
+Q101
+
+//////////////////////////////////////////////////////////////////////////////
+Q102
+
+//////////////////////////////////////////////////////////////////////////////
+Q103
+
+//////////////////////////////////////////////////////////////////////////////
+Q104
+
+//////////////////////////////////////////////////////////////////////////////
+Q105
+
+//////////////////////////////////////////////////////////////////////////////
+Q106
+
+//////////////////////////////////////////////////////////////////////////////
+Q107
+
+//////////////////////////////////////////////////////////////////////////////
+Q108
+
+//////////////////////////////////////////////////////////////////////////////
+Q109
+
+//////////////////////////////////////////////////////////////////////////////
+Q110
+
+

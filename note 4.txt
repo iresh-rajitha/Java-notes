@@ -1,0 +1,1405 @@
+Q100 JTable
+===========
+import javax.swing.*;
+import javax.swing.table.*;
+import java.awt.*;
+class ViewCustomerForm extends JFrame{
+	private JLabel titleLabel;
+	private JButton reloadButton;
+	private JTable customerTable;
+	
+	ViewCustomerForm(){
+		setSize(400,300);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);	
+		
+		titleLabel=new JLabel("Customer List");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		add("North",titleLabel);
+		
+		reloadButton=new JButton("Reload");
+		reloadButton.setFont(new Font("",1,20));
+		JPanel buttonPanel=new JPanel();
+		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
+		buttonPanel.add(reloadButton);
+		add("South",buttonPanel);
+		
+		String[] columnNames={"Customer ID", new String("Name"),new String("Address"),"Salary"};
+		DefaultTableModel dtm=new DefaultTableModel(columnNames,0);
+		customerTable=new JTable(dtm);
+		JScrollPane tablePane=new JScrollPane(customerTable);
+		add("Center",tablePane);
+	} 
+}
+class Demo{
+	public static void main(String args[]){
+		new ViewCustomerForm().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q101 JTable 
+===========
+import javax.swing.*;
+import javax.swing.table.*;
+import java.awt.*;
+class ViewCustomerForm extends JFrame{
+	private JLabel titleLabel;
+	private JButton reloadButton;
+	private JTable customerTable;
+	
+	ViewCustomerForm(){
+		setSize(400,300);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);	
+		
+		titleLabel=new JLabel("Customer List");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		add("North",titleLabel);
+		
+		reloadButton=new JButton("Reload");
+		reloadButton.setFont(new Font("",1,20));
+		JPanel buttonPanel=new JPanel();
+		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
+		buttonPanel.add(reloadButton);
+		add("South",buttonPanel);
+		
+		customerTable=new JTable(5,4);
+		JScrollPane tablePane=new JScrollPane(customerTable);
+		
+		add("Center",tablePane);
+	} 
+}
+class Demo{
+	public static void main(String args[]){
+		new ViewCustomerForm().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q102 JTable
+===========
+import javax.swing.*;
+import javax.swing.table.*;
+import java.awt.*;
+class ViewCustomerForm extends JFrame{
+	private JLabel titleLabel;
+	private JButton reloadButton;
+	private JTable customerTable;
+	
+	ViewCustomerForm(){
+		setSize(400,300);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);	
+		
+		titleLabel=new JLabel("Customer List");
+		titleLabel.setFont(new Font("",1,25));
+		titleLabel.setHorizontalAlignment(JLabel.CENTER);
+		add("North",titleLabel);
+		
+		reloadButton=new JButton("Reload");
+		reloadButton.setFont(new Font("",1,20));
+		JPanel buttonPanel=new JPanel();
+		buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); 
+		buttonPanel.add(reloadButton);
+		add("South",buttonPanel);
+		
+		customerTable=new JTable();
+		
+		DefaultTableModel dtm=(DefaultTableModel)customerTable.getModel();
+		String[] columnNames={"Customer ID", new String("Name"),new String("Address"),"Salary"};
+		dtm.setColumnIdentifiers(columnNames);
+		
+		JScrollPane tablePane=new JScrollPane(customerTable);
+		
+		add("Center",tablePane);
+	} 
+}
+class Demo{
+	public static void main(String args[]){
+		new ViewCustomerForm().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Inheritance
+//////////////////////////////////////////////////////////////////////////////
+Q103 Case I
+===========
+import javax.swing.*;
+class Calculator extends JFrame{
+
+}
+
+Calculator IS A JFrame
+Calculator --> Sub class
+JFrame     --> Super Class
+
+//////////////////////////////////////////////////////////////////////////////
+Q104 Case II
+============
+class A{
+	int a;
+	void printA(){
+		System.out.println("A : "+a);
+	}
+}
+class B extends A{
+	int b;
+	void printB(){
+		System.out.println("B : "+b);
+	}
+	void callPrint(){
+		printA();	//From class A
+		printB();
+	}
+	void printAB(){
+		System.out.println("A : "+a);	//From class A
+		System.out.println("B : "+b);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q105 Case III
+=============
+class A{
+	int a;
+	void printA(){
+		System.out.println("A : "+a);
+	}
+}
+class B extends A{
+	int b;
+	void printB(){
+		System.out.println("B : "+b);
+	}
+	void callPrint(){
+		printA();	//From class A
+		printB();
+	}
+	void printAB(){
+		System.out.println("A : "+a);	//From class A
+		System.out.println("B : "+b);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		B b1=null;
+		b1=new B();
+		b1.a=100;
+		b1.b=200;
+		//b1.x=20;
+		b1.printA();
+		b1.printB();
+		b1.printAB();
+		b1.callPrint();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q106 Case IV (Calling Super class Constructors)
+===============================================
+class A{
+	int a;
+	A(){
+		System.out.println("A()");
+	}
+	A(int i){
+		System.out.println("A(int)");
+	}	
+	A(int i, int j){
+		System.out.println("A(int,int)");
+	}	
+}
+class B extends A{
+	int b;
+	B(){
+		System.out.println("B()");
+	}
+	B(int i){
+		System.out.println("B(int)");
+	}	
+	B(int i, int j){
+		System.out.println("B(int,int)");
+	}	
+}
+
+class Demo{
+	public static void main(String args[]){
+		B b1=new B();
+		System.out.println("---------");
+		B b2=new B(100);
+		System.out.println("---------");
+		B b3=new B(100,200);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q107
+class A{
+	int a;
+	A(){
+		System.out.println("A()");
+	}
+	A(int i){
+		System.out.println("A(int)");
+	}	
+	A(int i, int j){
+		System.out.println("A(int,int)");
+	}	
+}
+class B extends A{
+	int b;
+	B(){
+		super(); //Compiler inserts
+		System.out.println("B()");
+	}
+	B(int i){
+		super();//Compiler inserts
+		System.out.println("B(int)");
+	}	
+	B(int i, int j){
+		super();//Compiler inserts
+		System.out.println("B(int,int)");
+	}	
+}
+
+class Demo{
+	public static void main(String args[]){
+		B b1=new B();
+		System.out.println("---------");
+		B b2=new B(100);
+		System.out.println("---------");
+		B b3=new B(100,200);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q108
+class A{
+	int a;
+	A(){
+		System.out.println("A()");
+	}
+	A(int i){
+		System.out.println("A(int)");
+	}	
+	A(int i, int j){
+		System.out.println("A(int,int)");
+	}	
+}
+class B extends A{
+	int b;
+	B(){
+		super();
+		System.out.println("B()");
+	}
+	B(int i){
+		super(i);
+		System.out.println("B(int)");
+	}	
+	B(int i, int j){
+		super(i,j);
+		System.out.println("B(int,int)");
+	}	
+}
+
+class Demo{
+	public static void main(String args[]){
+		B b1=new B();
+		System.out.println("---------");
+		B b2=new B(100);
+		System.out.println("---------");
+		B b3=new B(100,200);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q109 Exercise
+=============
+class A{
+	int a;
+	A(int i){
+		System.out.println("A(int)");
+	}	
+}
+class B extends A{
+
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q110 Case V
+===========
+class A{
+	int a;
+	void printA(){
+		System.out.println("A : "+a);
+	}	
+}
+class B extends A{
+	int b;
+	void printB(){
+		System.out.println("B : "+b);
+	}	
+}
+
+class Box{}
+
+class Demo{
+	public static void main(String args[]){
+		//Box b1=new A(); //Illegal ->Incompatible types
+		
+		A a1=new B(); //Legal
+		
+		//B b1=new A(); //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q111 Case V
+===========
+class A{
+	int a;
+	void printA(){
+		System.out.println("A : "+a);
+	}	
+}
+class B extends A{
+	int b;
+	void printB(){
+		System.out.println("B : "+b);
+	}	
+}
+
+class Box{}
+
+class Demo{
+	public static void main(String args[]){
+		A a1=new B(); //Legal
+		a1.a=100;
+
+		a1.b=200; //Illegal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q112 Case VI Method Overriding
+==============================
+class Vehicle{
+	String model;
+	void park(){
+		System.out.println("Vehicle parking..");
+	}	
+}
+class Car extends Vehicle{
+	void park(){ //Method Overriding
+		System.out.println("Car parking..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Car c1=new Car();
+		c1.park();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q113 Case VII - Method Overloading
+==================================
+class Vehicle{
+	String model;
+	void park(int location){
+		System.out.println("Vehicle parking..");
+	}	
+}
+class Car extends Vehicle{
+	void park(double location){ 
+		System.out.println("Car parking..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Car c1=new Car();
+		c1.park(100);
+		c1.park(1.231);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q114 Case VIII - Dynamic Method Dispatch
+========================================
+class Vehicle{
+	String model;
+	void park(int location){
+		System.out.println("Vehicle parking..");
+	}	
+}
+class Car extends Vehicle{
+	void park(int location){  
+		System.out.println("Car parking..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Vehicle v1=new Car();
+		v1.park(100);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q115 Exercise (No Dynamic Method Dispatch)
+==========================================
+class Vehicle{
+	String model;
+	void park(int location){
+		System.out.println("Vehicle parking..");
+	}	
+}
+class Car extends Vehicle{
+	void park(int location){  
+		System.out.println("Car parking..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Car c1=new Car();
+		c1.park(100);
+	}
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+Q116 Case IX - Runtime Polymorphism
+===================================
+class Vehicle{
+	String model;
+	void park(int location){
+		System.out.println("Vehicle parking..");
+	}	
+}
+class Car extends Vehicle{
+	void park(int location){  
+		System.out.println("Car parking..");
+	}
+}
+class Van extends Vehicle{
+	void park(int location){  
+		System.out.println("Van parking..");
+	}
+}
+class Bus extends Vehicle{
+	void park(int location){  
+		System.out.println("Bus parking..");
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Vehicle v1;
+		
+		v1=new Car();
+		v1.park(100);	 //Car parking..
+		
+		v1=new Bus();
+		v1.park(100);	//Bus parking..
+		
+		v1=new Van();
+		v1.park(100);	//Van parking..
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q117 Case X - Class Object
+==========================
+class A /* extends Object */{  //Compiler inserts
+	
+}
+
+class Demo{
+	public static void main(String args[]){
+		A a1=new A();
+		a1.toString(); 	//From Class Object
+		a1.hashCode();	//From Class Object
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q118 Exercise (Class Object)
+============================
+class A /* extends Object */{  //Compiler inserts
+	A(){
+		super();//
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q119 Exercise (Class Object)
+============================
+import java.util.*;
+class A{}
+class MyClass{}
+
+class Demo{
+	public static void main(String args[]){
+		Object ob;
+		ob=new A();
+		ob=new MyClass();
+		ob=new Date();
+		ob=new Scanner(System.in);
+		ob=new String("qqq");
+		ob=new int[4];
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q120 Case XI - Method (public String toString())
+================================================
+import java.util.*;
+class Customer{
+	private String id;
+	private String name;
+	public Customer(String id, String name){
+		this.id=id;
+		this.name=name;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		String s1=new String("abc");
+		System.out.println(s1);
+		System.out.println(s1.toString());
+		
+		Customer c1=new Customer("C001","Danapala");
+		System.out.println(c1);
+		System.out.println(c1.toString());
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q121
+import java.util.*;
+class Customer{
+	private String id;
+	private String name;
+	public Customer(String id, String name){
+		this.id=id;
+		this.name=name;
+	}
+	public String toString(){
+		return this.name;
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		String s1=new String("abc");
+		System.out.println(s1);
+		System.out.println(s1.toString());
+		
+		Customer c1=new Customer("C001","Danapala");
+		System.out.println(c1);
+		System.out.println(c1.toString());
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q122 Method "toString()"
+========================
+import java.util.*;
+class Box{
+	int length;
+	int width;
+	int height;
+	public String toString(){
+		return getClass().getName()+"&&&"+Integer.toHexString(hashCode());
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		Box b1=new Box();
+		System.out.println(b1);//call c1.toString()
+
+	}
+}
+/*class Object{
+	//
+	//
+	public String toString(){
+		return getClass().getName()+"@"+Integer.toHexString(hashCode());
+	}
+	//
+	//
+*/
+
+//////////////////////////////////////////////////////////////////////////////
+Q123 Exercise
+=============
+import javax.swing.*;
+import java.awt.*;
+
+class Customer{
+	private String id;
+	private String name;
+	public Customer(String id, String name){
+		this.id=id;
+		this.name=name;
+	}
+/*	public String toString(){
+		return this.id+" - "+name;
+	}
+*/
+}
+
+class MyFrame extends JFrame{
+	private JComboBox customerBox;	
+	MyFrame(){
+		setSize(300,200);
+		setTitle("Add Customer Form");
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		customerBox=new JComboBox();
+		customerBox.addItem(new Customer("C001","Danapala")); 
+		customerBox.addItem(new Customer("C003","Gunapala")); 
+		customerBox.addItem(new Customer("C004","Somapala")); 
+		customerBox.addItem(new Customer("C002","Amarapala")); 
+		add(customerBox);
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		MyFrame f1=new MyFrame();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q124 From Q123
+==============
+import javax.swing.*;
+import java.awt.*;
+
+class Customer{
+	private String id;
+	private String name;
+	public Customer(String id, String name){
+		this.id=id;
+		this.name=name;
+	}
+	public String toString(){
+		return this.id+" - "+name;
+	}
+
+}
+
+class MyFrame extends JFrame{
+	private JComboBox customerBox;	
+	MyFrame(){
+		setSize(300,200);
+		setTitle("Add Customer Form");
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		customerBox=new JComboBox();
+		customerBox.addItem(new Customer("C001","Danapala")); 
+		customerBox.addItem(new Customer("C003","Gunapala")); 
+		customerBox.addItem(new Customer("C004","Somapala")); 
+		customerBox.addItem(new Customer("C002","Amarapala")); 
+		add(customerBox);
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		MyFrame f1=new MyFrame();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q125 Case XII - Object Arrays
+=============================
+import javax.swing.*;
+import java.awt.*;
+
+class Customer{
+	private String id;
+	private String name;
+	public Customer(String id, String name){
+		this.id=id;
+		this.name=name;
+	}
+	public String toString(){
+		return this.id+" - "+name;
+	}
+
+}
+
+class Demo{
+	public static void main(String args[]){
+		int []xr=new int[4];
+		xr[0]=100;
+		
+		Customer []cr=new Customer[4]; //Object Reference Array
+		cr[0]=new Customer("C001","Danapala");
+		cr[1]=new Customer("C002","Gunapala");
+		cr[2]=new Customer("C003","Somapala");
+		cr[3]=new Customer("C001","Amarapala");
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q126 Exercise
+=============
+import javax.swing.*;
+import java.awt.*;
+
+class Customer{
+	private String id;
+	private String name;
+	public Customer(String id, String name){
+		this.id=id;
+		this.name=name;
+	}
+	public String toString(){
+		return this.id+" - "+name;
+	}
+
+}
+
+class Demo{
+	public static void main(String args[]){
+		Customer []cr=new Customer[4]; //Object Reference Array
+		cr[0]=new Customer("C001","Danapala");
+		cr[1]=new Customer("C002","Gunapala");
+		cr[2]=new Customer("C003","Somapala");
+		cr[3]=new Customer("C001","Amarapala");
+		
+		for(Customer c1 : cr){
+			System.out.println(c1); //c1.toString()\
+		}	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q127 Exercise
+=============
+import javax.swing.*;
+import java.awt.*;
+
+class Customer{
+	private String id;
+	private String name;
+	public Customer(String id, String name){
+		this.id=id;
+		this.name=name;
+	}
+	public String toString(){
+		return this.id+" - "+name;
+	}
+
+}
+
+class Demo{
+	public static void main(String args[]){
+		int[] xr={32,54,76,78,45};
+		
+		Customer []cr={	new Customer("C001","Danapala"),
+						new Customer("C002","Gunapala"),
+						new Customer("C003","Somapala"),
+						new Customer("C001","Amarapala")
+					};
+		for(Customer c1 : cr){
+			System.out.println(c1); //c1.toString()\
+		}	
+		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q128 Exercise
+=============
+ class A{}
+ class B extends A{}
+ class C{}
+ 
+class Demo{
+	public static void main(String args[]){
+		String[] names1={"AA","BB","CC","DD"};
+		String[] names2={"AA","BB","CC",new C()};
+		
+		A[] ar1={new A(), new A(),new B(),new A()};
+		
+		A[] ar2={new A(), new A(),new B(),new C()};
+		
+		Object[] obj={"ABC", new A(), new A(),new B(),new A()};
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q129 Case XIII - Object Reference Casting
+=========================================
+class A{
+	void mA(){
+		System.out.println("mA");
+	}
+}
+class B extends A{
+	void mB(){
+		System.out.println("mB");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		A  a1=new B();
+		a1.mA();
+		//a1.mB(); //Illegal
+		B b1;
+		//b1=a1; //Illegal
+		b1=(B)a; //Object Reference Casting
+		b1.mB();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Abstract Methods and Abstract Classes
+//////////////////////////////////////////////////////////////////////////////
+Q130
+class Vehicle{
+	void park(int location);
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q131 Abstract Methods
+=====================
+class Vehicle{
+	abstract void park(int location);
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q132 Abstract Classes
+=====================
+abstract class Vehicle{
+	abstract void park(int location);
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q133 Rule No.1
+==============
+abstract class Vehicle{
+	abstract void park(int location);
+	void start(){
+		System.out.println("Starting Vehicle..");
+	}
+}
+class Car extends Vehicle{}
+class Van extends Vehicle{
+	void park(int location){
+		System.out.println("Car Parking..");
+	}
+} 
+abstract class Bus extends Vehicle{
+	
+}
+  
+//////////////////////////////////////////////////////////////////////////////
+Q134 Rule No. II
+================
+abstract class Vehicle{
+	abstract void park(int location);
+}
+class Car extends Vehicle{
+	void park(int location){
+		System.out.println("Car Parking..");
+	}	 
+}
+class Demo{
+	public static void main(String args[]){
+		Vehicle v1;
+		//v1=new Vehicle(); //Illegal
+		v1=new Car();
+		v1.park(100);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Java Interfaces	
+//////////////////////////////////////////////////////////////////////////////
+Q135
+interface Vehicle{
+	void park(int location); //public, abstract
+	void start();
+	void stop();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q136
+interface Vehicle{
+	void park(int location); //public, abstract
+}
+//class Van extends Vehicle{}
+
+class Car implements Vehicle{
+	public void park(int location){
+		
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q137
+interface Vehicle{
+	void park(int location); //public, abstract
+}
+class Car implements Vehicle{
+	public void park(int location){
+		System.out.println("Car Parking...");	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Vehicle v1;
+		//v1=new Vehicle(); //Illegal
+		v1=new Car();
+		v1.park(100); //Method dispatch
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Event Handling
+//////////////////////////////////////////////////////////////////////////////
+Q138
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JButton exitButton;
+	
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		exitButton=new JButton("Exit");
+		exitButton.addActionListener(new ExitAction());
+		add(exitButton);
+	}
+}
+
+class ExitAction implements ActionListener{
+	public void actionPerformed(ActionEvent evt){
+		System.out.println("Exited...");
+		System.exit(0);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q139 Exercise
+=============
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JButton exitButton;
+	private JButton yesButton;
+	private JButton noButton;
+	private JButton cancelButton;
+	
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		
+		yesButton=new JButton("Yes");
+		yesButton.addActionListener(new YesAction());
+		add(yesButton);
+		
+		noButton=new JButton("No");
+		noButton.addActionListener(new NoAction());
+		add(noButton);
+		
+		cancelButton=new JButton("Cancel");
+		cancelButton.addActionListener(new CancelAction());
+		add(cancelButton);		
+		exitButton=new JButton("Exit");
+		exitButton.addActionListener(new ExitAction());
+		add(exitButton);
+	}
+}
+
+class ExitAction implements ActionListener{
+	public void actionPerformed(ActionEvent evt){
+		System.out.println("Exited...");
+		System.exit(0);
+	}
+}
+class YesAction implements ActionListener{
+	public void actionPerformed(ActionEvent evt){
+		System.out.println("You pressed yes button");
+	}
+}
+class NoAction implements ActionListener{
+	public void actionPerformed(ActionEvent evt){
+		System.out.println("You pressed No button");
+	}
+}
+class CancelAction implements ActionListener{
+	public void actionPerformed(ActionEvent evt){
+		System.out.println("You pressed Cancel button");
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q140 Using Inner Classes 
+========================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JButton exitButton;
+	
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		exitButton=new JButton("Exit");
+		
+		class ExitAction implements ActionListener{
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("Exited...");
+				System.exit(0);
+			}
+		}
+		exitButton.addActionListener(new ExitAction());
+		add(exitButton);
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q141 From Q139 (Using Inner Classes)
+====================================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JButton exitButton;
+	private JButton yesButton;
+	private JButton noButton;
+	private JButton cancelButton;
+	
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		
+		yesButton=new JButton("Yes");
+		class YesAction implements ActionListener{
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("You pressed yes button");
+			}
+		}					
+		yesButton.addActionListener(new YesAction());
+		add(yesButton);
+		
+		noButton=new JButton("No");
+		class NoAction implements ActionListener{
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("You pressed No button");
+			}
+		}
+		noButton.addActionListener(new NoAction());
+		add(noButton);
+		
+		cancelButton=new JButton("Cancel");
+		class CancelAction implements ActionListener{
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("You pressed Cancel button");
+			}
+		}		
+		cancelButton.addActionListener(new CancelAction());
+		add(cancelButton);		
+
+		exitButton=new JButton("Exit");
+		class ExitAction implements ActionListener{
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("Exited...");
+				System.exit(0);
+			}
+		}
+		exitButton.addActionListener(new ExitAction());
+		add(exitButton);
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q142 Using Anonymous Inner Classes
+==================================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JButton exitButton;
+	private JButton yesButton;
+	private JButton noButton;
+	private JButton cancelButton;
+	
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		
+		exitButton=new JButton("Exit");
+		/*class ExitAction implements ActionListener{
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("Exited...");
+				System.exit(0);
+			}
+		}*/
+		ActionListener ob=new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("Exited...");
+				System.exit(0);
+				
+			}
+		};
+		exitButton.addActionListener(ob);
+		add(exitButton);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q143 From Q141 (Using Anonymous Inner Classes)
+==============================================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JButton exitButton;
+	private JButton yesButton;
+	private JButton noButton;
+	private JButton cancelButton;
+	
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		
+		yesButton=new JButton("Yes");
+		yesButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("You pressed yes button");
+			}
+		});
+		add(yesButton);
+		
+		noButton=new JButton("No");
+		noButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("You pressed No button");
+			}
+		});
+		add(noButton);
+		
+		cancelButton=new JButton("Cancel");
+		cancelButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("You pressed Cancel button");
+			}
+		});
+		add(cancelButton);		
+
+		exitButton=new JButton("Exit");
+		exitButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				System.out.println("Exited...");
+				System.exit(0);
+			}
+		});
+		add(exitButton);
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q144 Exercise (ActionListener)
+==============================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JTextField textField;
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		
+		textField=new JTextField(20);
+		textField.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent evt){
+				String text=textField.getText();
+				setTitle(text);
+			}	
+		});
+		add(textField);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q145 ItemListener vs ItemEvent
+==============================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class Customer{
+	private String id;
+	private String name;
+	public Customer(String id, String name){
+		this.id=id;
+		this.name=name;
+	}
+	public String getName(){
+		return name;
+	}
+	public String toString(){
+		return this.id+" - "+name;
+	}
+}
+
+class MyFrame extends JFrame{
+	private JComboBox customerBox;	
+	MyFrame(){
+		setSize(300,200);
+		setTitle("Add Customer Form");
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		
+		customerBox=new JComboBox();
+		customerBox.addItemListener(new ItemListener(){
+			public void itemStateChanged(ItemEvent ob){
+				Customer c=(Customer)customerBox.getSelectedItem();
+				setTitle(c.getName());
+			}
+		});
+		customerBox.addItem(new Customer("C001","Danapala")); 
+		customerBox.addItem(new Customer("C003","Gunapala")); 
+		customerBox.addItem(new Customer("C004","Somapala")); 
+		customerBox.addItem(new Customer("C002","Amarapala")); 
+		add(customerBox);
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		MyFrame f1=new MyFrame();
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q146 KeyListener vs KeyEvent
+============================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JTextField textField;
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		
+		textField=new JTextField(20);
+		textField.addKeyListener(new KeyListener(){
+			public void keyPressed(KeyEvent evt){
+				
+			}	
+			public void keyTyped(KeyEvent evt){
+				
+			}				
+			public void keyReleased(KeyEvent evt){
+				String text=textField.getText();
+				setTitle(text); 
+			}				
+		});
+		add(textField);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q147 Using Adapter Classes
+==========================
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class MyFrame extends JFrame{
+	private JTextField textField;
+	MyFrame(){
+		setSize(300,200);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(new FlowLayout());
+		
+		textField=new JTextField(20);
+		textField.addKeyListener(new KeyAdapter(){
+			/*public void keyPressed(KeyEvent evt){
+				
+			}	
+			public void keyTyped(KeyEvent evt){
+				
+			}*/				
+			public void keyReleased(KeyEvent evt){
+				String text=textField.getText();
+				setTitle(text); 
+			}				
+		});
+		add(textField);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		new MyFrame().setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q148
+
+//////////////////////////////////////////////////////////////////////////////
+Q149
+
+//////////////////////////////////////////////////////////////////////////////
+Q150
+

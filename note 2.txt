@@ -1,0 +1,956 @@
+//////////////////////////////////////////////////////////////////////////////
+Q35 Exercise
+============
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date();
+		d1.printDate();
+		d1.setDate(31);
+		d1.setMonth(1);
+		d1.setYear(2017);
+		d1.printDate();
+		
+		Date d2=new Date(2017,2,14);
+		d2.printDate();
+		
+		int year=d2.getYear();
+		int month=d2.getMonth();
+		int date=d2.getDate();
+		System.out.println(year+"-"+month+"-"+date);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q36 From Q35
+============
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date();
+		d1.printDate();
+		d1.setDate(31);
+		d1.setMonth(1);
+		d1.setYear(2017);
+		d1.printDate();
+		
+		Date d2=new Date(2017,2,14);
+		d2.printDate();
+		
+		int year=d2.getYear();
+		int month=d2.getMonth();
+		int date=d2.getDate();
+		System.out.println(year+"-"+month+"-"+date);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Static Variables and static Methods
+//////////////////////////////////////////////////////////////////////////////	
+Q37
+class MyClass{
+	int x;
+	static int y;
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass();
+		c1.x=10;
+		c1.y=20;
+		MyClass c2=new MyClass();
+		c2.x=100;
+		c2.y=200;
+		
+		MyClass c3=new MyClass();
+		c3.x=1000;
+		c3.y=2000;
+		System.out.println("c1 : "+c1.x+" "+c1.y);	//prints 10 2000
+		System.out.println("c2 : "+c2.x+" "+c2.y);	//prints 100 2000
+		System.out.println("c3 : "+c3.x+" "+c3.y);	//prints 1000 2000
+		
+		c2.x=1;
+		c2.y=2;	
+		System.out.println("c1 : "+c1.x+" "+c1.y);	//prints 10 2
+		System.out.println("c2 : "+c2.x+" "+c2.y);	//prints 1 2
+		System.out.println("c3 : "+c3.x+" "+c3.y);	//prints 1000 2
+			
+		MyClass.y=0;
+		//MyClass.x=10;
+		System.out.println("c1 : "+c1.x+" "+c1.y);	//prints 10 0
+		System.out.println("c2 : "+c2.x+" "+c2.y);	//prints 1 0
+		System.out.println("c3 : "+c3.x+" "+c3.y);	//prints 1000 	0	
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q38 Case I
+==========
+class MyClass{
+	int x=10;
+	static int y=20;
+}
+class Demo{
+	public static void main(String args[]){
+		//System.out.println(MyClass.x); //Illegal
+		System.out.println(MyClass.y); //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q39 Case II
+===========
+class MyClass{
+	int x=10;
+	static int y=20;
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass();
+		MyClass c2=new MyClass();
+		
+		System.out.println(c1.x);
+		System.out.println(c1.y); //Legal
+		System.out.println(c2.y); //Legal
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q40 Exercise
+============
+class MyClass{
+	int x=10;
+	static int y=20;
+	MyClass(int i, int j){
+		x=i;
+		y=j;
+	}
+	void printXY(){
+		System.out.println(x);
+		System.out.println(y);
+	}
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass c1=new MyClass(1,2);
+		System.out.println(MyClass.y); 
+		MyClass.y=100;
+		c1.printXY();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q41 Case III
+===========
+class MyClass{
+	int x=10;
+	static int y=20;
+
+	void myMethod(){
+		int a;
+		static int b;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q42 Exercise
+============
+class Demo{
+	int x=10;
+	static int y=20;
+	public static void main(String args[]){
+		int x=100;
+		int y=200;
+		System.out.println();  //prints 10
+		System.out.println();  //prints 20
+		System.out.println();  //prints 100
+		System.out.println();  //prints 200
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q43 Exercise
+============
+class Demo{
+	int x=10;
+	static int y=20;
+	public static void main(String args[]){
+		Demo d1=new Demo();
+		int x=100;
+		int y=200;
+		System.out.println(new Demo().x);//System.out.println(d1.x);  //prints 10
+		System.out.println(Demo.y);//System.out.println(d1.y);  //prints 20
+		System.out.println(x);  //prints 100
+		System.out.println(y);  //prints 200
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q44 Exercise
+============
+class Date{
+	int year;
+	int month;
+	static int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,1,29);
+		Date d2=new Date(2018,2,30);
+		Date d3=new Date(2019,3,31);
+		d1.printDate();	//2017/1/31
+		d2.printDate();	//2018/2/31
+		d3.printDate();	//2019/3/31
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Static Methods
+//////////////////////////////////////////////////////////////////////////////
+Q45
+class MyClass{
+	void instanceMethod(){
+		System.out.println("instance method");
+	}	
+	static void staticMethod(){
+		System.out.println("static method");
+	}		
+}
+class Demo{
+	public static void main(String args[]){
+		//MyClass.instanceMethod();//Error
+		MyClass.staticMethod();
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q46 Exercise
+============
+class MyClass{
+	int x=10;
+	static int y=20;
+	void instanceMethod(){
+		System.out.println(x);	//Line 1
+		System.out.println(y);	//Line 2
+	}	
+	static void staticMethod(){
+		System.out.println(x);	//Line 3
+		System.out.println(y);	//Line 4
+	}		
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q47 Exercise
+============
+class Demo{
+	public static void myMethod1(){
+		System.out.println("myMethod1");
+	}
+	public  void myMethod2(){
+		System.out.println("myMethod2");
+	}	
+	public static void main(String args[]){
+		myMethod1(); //Legal
+		myMethod2(); //Illegal
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Tempte Object, Static Blocks
+//////////////////////////////////////////////////////////////////////////////
+Q48
+class Box{
+	int length;
+	int width;
+	int height;
+	static int PI=3.141;
+	
+	void setValues(int length, int width, int height){
+		this.length=length;
+		this.width=width;
+		this.height=height;
+	}
+	static double sqrt(double d){
+		double sqrt=Math.sqrt(d);
+		return sqrt;
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q49 Static Blocks
+=================
+class MyClass{
+	int x=10;
+	static int y=20;
+	MyClass(){
+		System.out.println("Constructor");
+	}
+	{
+		System.out.println("Instance block..");
+	}
+	static{
+		System.out.println("Static block..");
+	}
+	void mA(){
+		System.out.println("Instance mA");		
+	}
+	static void mB(){
+		System.out.println("Static mA");		
+	}
+}
+class Demo{
+	public static  void main(String args[]){
+		//Insert Code
+	}	
+}
+//A.	MyClass.mB();
+//B.	MyClass.mB();MyClass.mB();
+//C.	new MyClass();
+//D.	new MyClass();new MyClass();
+//E.	MyClass.mB();new MyClass();
+//F.	MyClass c1;
+
+//////////////////////////////////////////////////////////////////////////////
+	Method Call by Values vs Method Call by Reference		
+//////////////////////////////////////////////////////////////////////////////
+Q50 Method Call by Values (Primitives)
+=====================================
+class MyClass{
+	static void swap(int x, int y){
+		int t=x;
+		x=y;
+		y=t;
+		System.out.println(x+" "+y);//prints 200 100
+	}
+}
+class Demo{
+	public static  void main(String args[]){
+		 int x=100;
+		 int y=200;
+		 System.out.println(x+" "+y);	//prints 100 200
+		 MyClass.swap(x,y);	
+		 System.out.println(x+" "+y);	//prints 100 200
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q51 Method Call by Values
+=========================
+class MyClass{
+	static void swap(int x, int y){
+		int t=x;
+		x=y;
+		y=t;
+		System.out.println(x+" "+y);//prints 200 100
+	}
+}
+class Demo{
+	public static  void main(String args[]){
+		 int[] x={100,200};
+		 System.out.println(x[0]+" "+x[1]);	//prints 100 200
+		 MyClass.swap(x[0],x[1]);	
+		 System.out.println(x[0]+" "+x[1]);	//prints 100 200
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q52 Method Call by Reference
+=============================
+class MyClass{
+	static void swap(int[] x){
+		int t=x[0];
+		x[0]=x[1];
+		x[1]=t;
+		System.out.println(x[0]+" "+x[1]);	//prints 200 100
+	}
+}
+class Demo{
+	public static  void main(String args[]){
+		 int[] x={100,200};
+		 System.out.println(x[0]+" "+x[1]);	//prints 100 200
+		 MyClass.swap(x);	//Call by reference
+		 System.out.println(x[0]+" "+x[1]);	//prints 200 100
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q53 Exercise (Call by Reference)
+================================
+class MyClass{
+	static void swap(int x, int y){
+		int t=x;
+		x=y;
+		y=t;
+		System.out.println(x+" "+y);//prints 200 100
+	}
+}
+class Value{
+	int x=100;
+	int y=200;
+}
+class Demo{
+	public static  void main(String args[]){
+		 Value v1=new Value();
+		 System.out.println(v1.x+" "+v1.y);
+		 MyClass.swap(v1.x, v1.y);
+		 System.out.println(v1.x+" "+v1.y);
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q54 From Q53 (Convert Call by Reference)
+========================================
+class MyClass{
+	static void swap(Value v){
+		int t=v.x;
+		v.x=v.y;
+		v.y=t;
+		System.out.println(v.x+" "+v.y);//prints 200 100
+	}
+}
+class Value{
+	int x=100;
+	int y=200;
+}
+class Demo{
+	public static  void main(String args[]){
+		 Value v1=new Value();
+		 System.out.println(v1.x+" "+v1.y);
+		 MyClass.swap(v1);
+		 System.out.println(v1.x+" "+v1.y);
+	}	
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q55 Exercise
+============
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		Date d2=new Date(); //Default Date
+		d2.printDate(); //1970/1/1
+		
+		d2.copyDateFrom(d1);
+		d2.printDate(); //2017/2/14
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q56 From Q55
+============
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+	void copyDateFrom(Date d){
+		this.year=d.year;
+		this.month=d.month;
+		this.date=d.date;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		Date d2=new Date(); //Default Date
+		d2.printDate(); //1970/1/1
+		
+		d2.copyDateFrom(d1);
+		d2.printDate(); //2017/2/14
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Retrun an Object
+//////////////////////////////////////////////////////////////////////////////
+Q57
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+	void copyDateFrom(Date d){
+		this.year=d.year;
+		this.month=d.month;
+		this.date=d.date;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		Date d2=d1.getCopy();
+		d2.printDate(); //2017/2/14
+		
+		System.out.println(d1==d2); //false
+	}
+}
+//////////////////////////////////////////////////////////////////////
+From Q57
+========
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	void setYear(int year){
+		this.year=year;
+	}
+	void setMonth(int month){
+		this.month=month;
+	}
+	void setDate(int date){
+		this.date=date;
+	}
+	int getDate(){
+		return date;
+	}
+	int getMonth(){
+		return month;
+	}
+	int getYear(){
+		return year;
+	}
+	void copyDateFrom(Date d){
+		this.year=d.year;
+		this.month=d.month;
+		this.date=d.date;
+	}
+	Date getCopy(){
+		Date d1=new Date();
+		d1.setYear(this.year);
+		d1.setMonth(this.month);
+		d1.setDate(this.date);
+		return d1;
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		Date d2=d1.getCopy();
+		d2.printDate(); //2017/2/14
+		
+		System.out.println(d1==d2); //false
+	}
+}
+
+//------------------------------------------------------------
+	Date getCopy(){
+		Date d1=new Date(year,month,date);
+		return d1;
+	}
+
+
+//////////////////////////////////////////////////////////////////////////////
+	Encapsulation
+//////////////////////////////////////////////////////////////////////////////
+Q58 
+import javax.swing.*;
+class Demo{
+	public static void main(String args[]){
+		JFrame f1=new JFrame();
+		f1.setSize(300,300);
+		f1.setTitle("Calculator");
+		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f1.setVisible(true);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q59 
+class Date{
+	int year;
+	int month;
+	int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		d1.year=-2017;
+		d1.month=-2;
+		d1.date=-14;
+		d1.printDate();
+		
+		d1.year=2017;
+		d1.month=2;
+		d1.date=31;
+		d1.printDate();		 
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q60 From Q59
+============
+class Date{
+	private int year;
+	private int month;
+	private int date;
+	Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		d1.year=-2017;
+		d1.month=-2;
+		d1.date=-14;
+		d1.printDate();
+		
+		d1.year=2017;
+		d1.month=2;
+		d1.date=31;
+		d1.printDate();		 
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q61 With Encapsulation
+======================
+class Date{
+	private int year;
+	private int month;
+	private int date;
+	
+	public Date(){
+		year=1970;
+		month=1;
+		date=1;
+	}
+	public Date(int year, int month, int date){
+		this.year=year;
+		this.month=month;
+		this.date=date;
+	}	
+	public void setYear(int year){
+		if(year>0){
+			this.year=year;
+		}
+	}
+	public void setMonth(int month){
+		if(month>=1 & month<=12){
+			this.month=month;
+		}
+	}	
+	public void setDate(int date){
+		if(date>=1 && date<=31){
+			this.date=date;
+		}
+	}	
+	public void printDate(){
+		System.out.println(year+"/"+month+"/"+date);	
+	}
+	public int getDate(){
+		return date;
+	}
+	public int getYer(){
+		return year;
+	}	
+	public int getMonth(){
+		return month;
+	}	
+}
+
+class Demo{
+	public static void main(String args[]){
+		Date d1=new Date(2017,2,14);
+		d1.printDate();
+		
+		d1.setYear(-2017); //d1.year=-2017;
+		d1.setMonth(-2); //d1.month=-2;
+		d1.setDate(-14); //d1.date=-14;
+		d1.printDate();
+
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+	Method Overloading
+//////////////////////////////////////////////////////////////////////////////
+Q62
+class MyClass{
+	public static void myMethod(int i){
+		System.out.println("myMethod2(int)");
+	}
+	public static void myMethod(int i){
+		System.out.println("myMethod2(int)");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass.myMethod(100);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q63
+class MyClass{
+	public static void myMethod(int i){
+		System.out.println("myMethod2(int)");
+	}
+	public static void myMethod(double i){
+		System.out.println("myMethod(double)");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		MyClass.myMethod(100);
+		MyClass.myMethod(10.0);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+Q64 Exercise
+============
+class MyClass{
+	public static void myMethod(int i){
+		System.out.println("myMethod2(int)");
+	}
+	public static void myMethod(double i){
+		System.out.println("myMethod(double)");
+	}	
+}
+class Demo{
+	public static void main(String args[]){
+		byte b=-100;
+		short s=-100;
+		int x=-100;
+		long y=-100;
+		float f=-100.0f;
+		double d=-1.1222;
+		
+		b=MyClass.abs(b);
+		s=MyClass.abs(s);
+		x=MyClass.abs(x);
+		y=MyClass.abs(y);
+		f=MyClass.abs(f);
+		d=MyClass.abs(d);
+	}
+}
