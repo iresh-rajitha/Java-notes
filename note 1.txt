@@ -51,6 +51,7 @@ Q3 Exercise
 ===========
 class Demo{
 	public static void main(String args[]){
+		
 		int[] x;	//Create an array reference (Array address)
 		x=new int[3]; //Create an array Object 
 		System.out.println(x); //prints address of the array
